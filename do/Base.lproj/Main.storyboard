@@ -20,14 +20,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="Vjp-oT-JbJ">
+                                <rect key="frame" x="230" y="116" width="140" height="140"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="MHZ-yg-3tz"/>
+                                    <constraint firstAttribute="width" constant="140" id="l6K-mk-xDE"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VHZ-Qu-bC9" secondAttribute="bottom" id="4dR-gh-30b"/>
+                            <constraint firstItem="VHZ-Qu-bC9" firstAttribute="top" secondItem="Vjp-oT-JbJ" secondAttribute="bottom" constant="-256" id="Lj6-qZ-u1p"/>
                             <constraint firstAttribute="trailing" secondItem="VHZ-Qu-bC9" secondAttribute="trailing" id="LjI-pl-X3Z"/>
                             <constraint firstItem="VHZ-Qu-bC9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fFb-W1-Bq3"/>
                             <constraint firstItem="VHZ-Qu-bC9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mXO-Y6-3jT"/>
+                            <constraint firstItem="Vjp-oT-JbJ" firstAttribute="centerX" secondItem="VHZ-Qu-bC9" secondAttribute="centerX" id="p92-me-7KT"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,5 +48,6 @@
     </scenes>
     <resources>
         <image name="background" width="750" height="1334"/>
+        <image name="mark" width="300" height="300"/>
     </resources>
 </document>
