@@ -17,7 +17,18 @@ class TutorialScreenViewController: UIViewController {
         let subViewFrame = CGRect(x: 0, y: 0, width: subViewWidth, height: subViewHeight)
         
         let firstView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(), info: "test")
+        firstView.backgroundColor = UIColor.redColor()
+        firstView.frame.origin.y += 20
+        let secondView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(), info: "test1")
+        secondView.backgroundColor = UIColor.blackColor()
+        secondView.frame.origin.y += 40
+        let thirdView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(), info: "test2")
+        thirdView.frame.origin.y += 60
+        var views = [firstView, secondView, thirdView]
         
+        for view in views {
+            self.view.addSubview(view)
+        }
     }
     
 }

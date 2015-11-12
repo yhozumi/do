@@ -24,6 +24,5 @@ class TutorialStepView: UIView {
         iconView = UIImageView(image: iconImage)
         infoLabel = UILabel()
         infoLabel!.text = info
-        
     }
 }
