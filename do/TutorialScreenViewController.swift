@@ -36,6 +36,7 @@ class TutorialScreenViewController: UIViewController {
         
         for view in views {
             self.view.addSubview(view)
+            view.layer.cornerRadius = 10.0
             view.layer.shadowRadius = 10.0
             view.layer.shadowOpacity = 0.8
         }
