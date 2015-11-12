@@ -36,12 +36,17 @@ class TutorialScreenViewController: UIViewController {
         
         for view in views {
             self.view.addSubview(view)
+            let gesture = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
+            gesture.direction = .Left
+            view.addGestureRecognizer(gesture)
             view.layer.cornerRadius = 10.0
             view.layer.shadowRadius = 10.0
             view.layer.shadowOpacity = 0.8
         }
-        
-        
+    }
+    
+    func handleSwipe(gesture: UISwipeGestureRecognizer) {
+    
     }
     
 }
