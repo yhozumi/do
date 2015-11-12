@@ -38,7 +38,10 @@ class TutorialScreenViewController: UIViewController {
             self.view.addSubview(view)
             let gesture = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
             gesture.direction = .Left
+            let gestureRight = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
+            gestureRight.direction = .Right
             view.addGestureRecognizer(gesture)
+            view.addGestureRecognizer(gestureRight)
             view.layer.cornerRadius = 10.0
             view.layer.shadowRadius = 10.0
             view.layer.shadowOpacity = 0.8
@@ -46,7 +49,35 @@ class TutorialScreenViewController: UIViewController {
     }
     
     func handleSwipe(gesture: UISwipeGestureRecognizer) {
-    
+        if gesture.direction == .Left {
+            UIView.animateWithDuration(0.5, animations: {
+                self.view.subviews.last?.frame.origin.x -= self.view.bounds.width
+                }, completion: {
+                    _ in
+                    let viewIndex = self.view.subviews.indexOf(self.view.subviews.last!)
+                    let removedView = self.view.subviews[viewIndex!]
+                    removedView.removeFromSuperview()
+                    UIView.animateWithDuration(0.5, animations: {
+                        self.view.subviews.last?.alpha = 1.0
+                        self.view.subviews.last?.frame.origin.y += 20
+                    })
+                    
+            })
+        } else {
+            UIView.animateWithDuration(0.5, animations: {
+                self.view.subviews.last?.frame.origin.x += self.view.bounds.width
+                }, completion: {
+                    _ in
+                    let viewIndex = self.view.subviews.indexOf(self.view.subviews.last!)
+                    let removedView = self.view.subviews[viewIndex!]
+                    removedView.removeFromSuperview()
+                    UIView.animateWithDuration(0.5, animations: {
+                        self.view.subviews.last?.alpha = 1.0
+                        self.view.subviews.last?.frame.origin.y += 20
+                    })
+                    
+            })
+        }
     }
     
 }
