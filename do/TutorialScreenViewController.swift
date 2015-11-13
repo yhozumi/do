@@ -36,48 +36,19 @@ class TutorialScreenViewController: UIViewController {
         
         for view in views {
             self.view.addSubview(view)
-            let gesture = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
-            gesture.direction = .Left
-            let gestureRight = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
-            gestureRight.direction = .Right
-            view.addGestureRecognizer(gesture)
-            view.addGestureRecognizer(gestureRight)
+            let panGesture = UIPanGestureRecognizer(target: self, action: Selector("handlePan:"))
+            view.addGestureRecognizer(panGesture)
             view.layer.cornerRadius = 10.0
             view.layer.shadowRadius = 10.0
             view.layer.shadowOpacity = 0.8
         }
     }
     
-    func handleSwipe(gesture: UISwipeGestureRecognizer) {
-        if gesture.direction == .Left {
+    func handlePan(gesture: UIPanGestureRecognizer) {
             UIView.animateWithDuration(0.5, animations: {
-                self.view.subviews.last?.frame.origin.x -= self.view.bounds.width
-                }, completion: {
-                    _ in
-                    let viewIndex = self.view.subviews.indexOf(self.view.subviews.last!)
-                    let removedView = self.view.subviews[viewIndex!]
-                    removedView.removeFromSuperview()
-                    UIView.animateWithDuration(0.5, animations: {
-                        self.view.subviews.last?.alpha = 1.0
-                        self.view.subviews.last?.frame.origin.y += 20
-                    })
-                    
+                self.view.subviews.last?.frame.origin.x = gesture.translationInView(self.view).x
             })
-        } else {
-            UIView.animateWithDuration(0.5, animations: {
-                self.view.subviews.last?.frame.origin.x += self.view.bounds.width
-                }, completion: {
-                    _ in
-                    let viewIndex = self.view.subviews.indexOf(self.view.subviews.last!)
-                    let removedView = self.view.subviews[viewIndex!]
-                    removedView.removeFromSuperview()
-                    UIView.animateWithDuration(0.5, animations: {
-                        self.view.subviews.last?.alpha = 1.0
-                        self.view.subviews.last?.frame.origin.y += 20
-                    })
-                    
-            })
-        }
+        print(self.view.subviews.last?.frame.origin.x)
     }
     
 }
