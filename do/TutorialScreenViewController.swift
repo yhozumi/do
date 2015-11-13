@@ -28,6 +28,7 @@ class TutorialScreenViewController: UIViewController {
         secondView.frame.origin.y += 40
         secondView.alpha = 0.6
         
+        
     
         let thirdView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(), info: "test2")
         thirdView.frame.origin.y += 60
