@@ -46,8 +46,9 @@ class TutorialScreenViewController: UIViewController {
     
     func handlePan(gesture: UIPanGestureRecognizer) {
             UIView.animateWithDuration(0.5, animations: {
-                self.view.subviews.last?.frame.origin.x = gesture.translationInView(self.view).x
-            })
+                self.view.subviews.last?.center.x = gesture.translationInView(self.view.subviews.last).x
+            }
+        )
         print(self.view.subviews.last?.frame.origin.x)
     }
     
