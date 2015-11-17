@@ -32,14 +32,14 @@ class TutorialScreenViewController: UIViewController {
         firstView.alpha = 0.4
         
         let secondView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(), info: "test1")
-        secondView.frame.origin.y += 40
+        secondView.frame.origin.y += 50
         secondView.alpha = 0.6
         
     
         let thirdView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(), info: "test2")
-        thirdView.frame.origin.y += 60
+        thirdView.frame.origin.y += 80
         
-        var views = [firstView, secondView, thirdView]
+        let views = [firstView, secondView, thirdView]
         
         for view in views {
             self.view.addSubview(view)
@@ -51,20 +51,28 @@ class TutorialScreenViewController: UIViewController {
         }
     }
     
-    private func slideViews(direction: SlideDirection, viewToSlide: UIView) {
+    private func cleanUpSlideView(viewToCleanUp: UIView) {
+        viewToCleanUp.removeFromSuperview()
+        UIView.animateWithDuration(0.5, animations: {
+            self.view.subviews.last?.alpha = 1.0
+            self.view.subviews.last!.frame.origin.y += 30
+            }, completion: nil)
+    }
+    
+    private func slideView(direction: SlideDirection, viewToSlide: UIView) {
         switch direction {
         case .Left:
             UIView.animateWithDuration(0.5, animations: {
                 viewToSlide.center.x -= self.view.bounds.width / 2
                 }, completion: { _ in
-                    
+                    self.cleanUpSlideView(viewToSlide)
             })
             
         case .Right:
             UIView.animateWithDuration(0.5, animations: {
                 viewToSlide.center.x += self.view.bounds.width / 2
                 }, completion: { _ in
-            
+                    self.cleanUpSlideView(viewToSlide)
             })
         }
     }
@@ -79,13 +87,13 @@ class TutorialScreenViewController: UIViewController {
             self.view.subviews.last?.center.x = initialLocation.x + translation.x
         case .Ended:
             if self.view.subviews.last?.center.x < 0 {
-                UIView.animateWithDuration(0.5, animations: {
-                    self.view.subviews.last?.center.x -= self.view.bounds.width / 2
-                    }, completion: nil)
+                slideView(.Left, viewToSlide: self.view.subviews.last!)
             } else if self.view.subviews.last?.center.x > self.view.bounds.width {
-                UIView.animateWithDuration(0.5, animations: {
-                    self.view.subviews.last?.center.x += self.view.bounds.width / 2
-                    }, completion: nil)
+                slideView(.Right, viewToSlide: self.view.subviews.last!)
+            } else {
+                UIView.animateWithDuration(0.4, animations: {
+                    self.view.subviews.last?.center.x = self.initialLocation.x
+                })
             }
         default:
             break
