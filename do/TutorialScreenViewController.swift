@@ -11,6 +11,13 @@ import UIKit
 
 class TutorialScreenViewController: UIViewController {
     
+    enum SlideDirection {
+        case Left
+        case Right
+    }
+    
+    private var initialLocation = CGPoint.zero
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let subViewWidth = self.view.frame.width * 0.80
@@ -44,11 +51,45 @@ class TutorialScreenViewController: UIViewController {
         }
     }
     
-    func handlePan(gesture: UIPanGestureRecognizer) {
+    private func slideViews(direction: SlideDirection, viewToSlide: UIView) {
+        switch direction {
+        case .Left:
             UIView.animateWithDuration(0.5, animations: {
-                self.view.subviews.last?.frame.origin.x = gesture.translationInView(self.view).x
+                viewToSlide.center.x -= self.view.bounds.width / 2
+                }, completion: { _ in
+                    
             })
-        print(self.view.subviews.last?.frame.origin.x)
+            
+        case .Right:
+            UIView.animateWithDuration(0.5, animations: {
+                viewToSlide.center.x += self.view.bounds.width / 2
+                }, completion: { _ in
+            
+            })
+        }
+    }
+    
+    func handlePan(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translationInView(self.view)
+        
+        switch gesture.state {
+        case .Began:
+            initialLocation = self.view.subviews.last!.center
+        case .Changed:
+            self.view.subviews.last?.center.x = initialLocation.x + translation.x
+        case .Ended:
+            if self.view.subviews.last?.center.x < 0 {
+                UIView.animateWithDuration(0.5, animations: {
+                    self.view.subviews.last?.center.x -= self.view.bounds.width / 2
+                    }, completion: nil)
+            } else if self.view.subviews.last?.center.x > self.view.bounds.width {
+                UIView.animateWithDuration(0.5, animations: {
+                    self.view.subviews.last?.center.x += self.view.bounds.width / 2
+                    }, completion: nil)
+            }
+        default:
+            break
+        }
     }
     
 }
