@@ -31,7 +31,7 @@ class TutorialScreenViewController: UIViewController {
         let subViewFrame = CGRect(x: leadingMargin, y: topMargin, width: subViewWidth, height: subViewHeight)
         
         
-        let firstView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(), info: "test")
+        let firstView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(named: ""), info: "test")
         firstView.frame.origin.y += 20
         firstView.alpha = 0.4
         
@@ -70,8 +70,24 @@ class TutorialScreenViewController: UIViewController {
         })
     }
     
+    private func slideViewIn(direction: SlideDirection, viewToSlide: UIView) {
+        viewToSlide.alpha = 0.0
+        self.view.addSubview(viewToSlide)
+        switch direction {
+        case .Left:
+            UIView.animateWithDuration(0.5, animations: {
+                viewToSlide.center.x += self.view.center.x
+                viewToSlide.alpha = 1.0
+            })
+        case .Right:
+            UIView.animateWithDuration(0.5, animations: {
+                viewToSlide.center.x -= self.view.center.x
+                viewToSlide.alpha = 1.0
+            })
+        }
+    }
     
-    private func slideView(direction: SlideDirection, viewToSlide: UIView) {
+    private func slideViewOut(direction: SlideDirection, viewToSlide: UIView) {
         switch direction {
         case .Left:
             UIView.animateWithDuration(0.5, animations: {
@@ -104,9 +120,9 @@ class TutorialScreenViewController: UIViewController {
             slidingView.center.x = initialLocation.x + translation.x
         case .Ended:
             if self.view.subviews.last?.center.x < threshold {
-                slideView(.Left, viewToSlide: slidingView)
+                slideViewOut(.Left, viewToSlide: slidingView)
             } else if slidingView.center.x > self.view.bounds.width - threshold {
-                slideView(.Right, viewToSlide: slidingView)
+                slideViewOut(.Right, viewToSlide: slidingView)
             } else {
                 UIView.animateWithDuration(0.4, animations: {
                     slidingView.center.x = self.initialLocation.x

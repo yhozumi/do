@@ -23,8 +23,10 @@ class TutorialStepView: UIView {
         configureViewLayer()
         
         iconView = UIImageView(image: iconImage)
+        iconView?.frame = CGRect(x: 0, y: 0, width: frame.width / 3, height: frame.width / 3)
         infoLabel = UILabel()
         infoLabel!.text = info
+        
     }
     
     
@@ -35,4 +37,5 @@ class TutorialStepView: UIView {
         
         self.backgroundColor = UIColor.whiteColor()
     }
+    
 }
