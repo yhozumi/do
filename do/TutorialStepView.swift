@@ -19,16 +19,11 @@ class TutorialStepView: UIView {
     
     init(frame: CGRect, iconImage: UIImage, info: String) {
         super.init(frame: frame)
-        
+
         configureViewLayer()
-        
-        iconView = UIImageView(image: iconImage)
-        iconView?.frame = CGRect(x: 0, y: 0, width: frame.width / 3, height: frame.width / 3)
-        infoLabel = UILabel()
-        infoLabel!.text = info
-        
+        configureImageView(iconImage)
+        configureLabel(info)
     }
-    
     
     private func configureViewLayer() {
         self.layer.cornerRadius = 10.0
@@ -38,4 +33,28 @@ class TutorialStepView: UIView {
         self.backgroundColor = UIColor.whiteColor()
     }
     
+    private func configureImageView(image: UIImage) {
+        let imageWidth = frame.width / 3
+        let imageXPosition = frame.width / 2 - imageWidth / 2
+        let imageYPosition = frame.height / 3 - imageWidth / 1.5
+        
+        iconView = UIImageView(image: image)
+        iconView?.frame = CGRect(x: imageXPosition, y: imageYPosition, width: imageWidth, height: imageWidth)
+        iconView?.contentMode = .ScaleAspectFill
+        
+        self.addSubview(iconView!)
+    }
+    
+    private func configureLabel(text: String) {
+        
+        infoLabel = UILabel()
+        infoLabel?.attributedText = NSAttributedString(string: text, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(17, weight: UIFontWeightLight)])
+        infoLabel?.frame = CGRect(x: 0, y: 0, width: frame.width - 60, height: 0)
+        infoLabel?.numberOfLines = 0
+        infoLabel!.sizeToFit()
+        infoLabel?.clipsToBounds = true
+        infoLabel!.center = CGPoint(x: frame.width / 2, y: frame.height / 1.5)
+        
+        self.addSubview(infoLabel!)
+    }
 }
