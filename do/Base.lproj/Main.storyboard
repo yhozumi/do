@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ynS-Co-LQm">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ynS-Co-LQm">
                                 <rect key="frame" x="35" y="415" width="530" height="45"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="H7K-iJ-tMi">
@@ -329,7 +329,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XhG-8k-y1O" id="95L-Yg-Thk">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="73.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="95J-Jp-Zxj">
@@ -394,7 +394,7 @@
                                         <rect key="frame" x="0.0" y="74" width="600" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vdc-KI-C4F" id="nW8-Mn-mXn">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="73.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RGh-sh-AQ8">
@@ -461,7 +461,7 @@
                                         <rect key="frame" x="0.0" y="148" width="600" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FGQ-OB-MYo" id="giy-xM-HaR">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="73.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Zp-mm-7SO">
@@ -526,7 +526,7 @@
                                         <rect key="frame" x="0.0" y="222" width="600" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cHo-6s-kbt" id="E10-P3-Abm">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="73.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cMp-aZ-K9e">
@@ -612,16 +612,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="9dv-yJ-7Bi">
+                                <rect key="frame" x="0.0" y="563" width="600" height="37"/>
+                                <animations/>
+                            </pageControl>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7Q6-f9-FHn" secondAttribute="trailing" id="DM5-hS-LHT"/>
+                            <constraint firstItem="9dv-yJ-7Bi" firstAttribute="leading" secondItem="TjP-9N-FbB" secondAttribute="leading" id="W9F-JI-i4X"/>
                             <constraint firstItem="7Q6-f9-FHn" firstAttribute="top" secondItem="TjP-9N-FbB" secondAttribute="top" id="WVP-5b-Pri"/>
                             <constraint firstItem="7Q6-f9-FHn" firstAttribute="leading" secondItem="TjP-9N-FbB" secondAttribute="leading" id="bh1-1e-M17"/>
                             <constraint firstItem="tLE-eU-uUC" firstAttribute="top" secondItem="7Q6-f9-FHn" secondAttribute="bottom" id="m1U-pp-ogA"/>
+                            <constraint firstItem="tLE-eU-uUC" firstAttribute="top" secondItem="9dv-yJ-7Bi" secondAttribute="bottom" id="szM-Dx-cwj"/>
+                            <constraint firstAttribute="trailing" secondItem="9dv-yJ-7Bi" secondAttribute="trailing" id="zBv-xP-roB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="9dv-yJ-7Bi" id="VHV-wf-Spl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ysb-T5-zod" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

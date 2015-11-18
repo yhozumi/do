@@ -11,12 +11,16 @@ import UIKit
 
 class TutorialScreenViewController: UIViewController {
     
+    @IBOutlet weak var pageControl: UIPageControl!
+    
     enum SlideDirection {
         case Left
         case Right
     }
     
     private var initialLocation = CGPoint.zero
+    
+    private var tutorialViews: [UIView]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,16 +43,18 @@ class TutorialScreenViewController: UIViewController {
         let thirdView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(), info: "test2")
         thirdView.frame.origin.y += 80
         
-        let views = [firstView, secondView, thirdView]
+        let tutorialViews = [firstView, secondView, thirdView]
         
-        for view in views {
+        for view in tutorialViews {
             self.view.addSubview(view)
             let panGesture = UIPanGestureRecognizer(target: self, action: Selector("handlePan:"))
             view.addGestureRecognizer(panGesture)
-            view.layer.cornerRadius = 10.0
-            view.layer.shadowRadius = 10.0
-            view.layer.shadowOpacity = 0.8
+
         }
+        
+        pageControl.addTarget(self, action: Selector("pageControlTapped:"), forControlEvents: .TouchUpInside)
+        
+        pageControl.numberOfPages = tutorialViews.count
     }
     
     private func cleanUpSlideView(viewToCleanUp: UIView) {
@@ -56,8 +62,14 @@ class TutorialScreenViewController: UIViewController {
         UIView.animateWithDuration(0.5, animations: {
             self.view.subviews.last?.alpha = 1.0
             self.view.subviews.last!.frame.origin.y += 30
-            }, completion: nil)
+            }, completion: { _ in
+                if let tutorialViews = self.tutorialViews {
+                    print(tutorialViews.count)
+                    self.pageControl.currentPage = tutorialViews.count - 1
+                }
+        })
     }
+    
     
     private func slideView(direction: SlideDirection, viewToSlide: UIView) {
         switch direction {
@@ -67,7 +79,6 @@ class TutorialScreenViewController: UIViewController {
                 }, completion: { _ in
                     self.cleanUpSlideView(viewToSlide)
             })
-            
         case .Right:
             UIView.animateWithDuration(0.5, animations: {
                 viewToSlide.center.x += self.view.bounds.width / 2
@@ -77,27 +88,32 @@ class TutorialScreenViewController: UIViewController {
         }
     }
     
+    func pageControlTapped(control: UIPageControl) {
+        print(control.currentPage)
+    }
+    
     func handlePan(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translationInView(self.view)
+        let slidingView = self.view.subviews.last!
+        let threshold = slidingView.bounds.width / 4
         
         switch gesture.state {
         case .Began:
-            initialLocation = self.view.subviews.last!.center
+            initialLocation = slidingView.center
         case .Changed:
-            self.view.subviews.last?.center.x = initialLocation.x + translation.x
+            slidingView.center.x = initialLocation.x + translation.x
         case .Ended:
-            if self.view.subviews.last?.center.x < 0 {
-                slideView(.Left, viewToSlide: self.view.subviews.last!)
-            } else if self.view.subviews.last?.center.x > self.view.bounds.width {
-                slideView(.Right, viewToSlide: self.view.subviews.last!)
+            if self.view.subviews.last?.center.x < threshold {
+                slideView(.Left, viewToSlide: slidingView)
+            } else if slidingView.center.x > self.view.bounds.width - threshold {
+                slideView(.Right, viewToSlide: slidingView)
             } else {
                 UIView.animateWithDuration(0.4, animations: {
-                    self.view.subviews.last?.center.x = self.initialLocation.x
+                    slidingView.center.x = self.initialLocation.x
                 })
             }
         default:
             break
         }
     }
-    
 }

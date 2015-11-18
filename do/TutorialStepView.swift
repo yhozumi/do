@@ -14,15 +14,25 @@ class TutorialStepView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
     }
     
     init(frame: CGRect, iconImage: UIImage, info: String) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.whiteColor() 
+        configureViewLayer()
         
         iconView = UIImageView(image: iconImage)
         infoLabel = UILabel()
         infoLabel!.text = info
+    }
+    
+    
+    private func configureViewLayer() {
+        self.layer.cornerRadius = 10.0
+        self.layer.shadowRadius = 10.0
+        self.layer.shadowOpacity = 0.8
+        
+        self.backgroundColor = UIColor.whiteColor()
     }
 }
