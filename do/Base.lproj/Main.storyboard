@@ -332,7 +332,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="95J-Jp-Zxj">
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="95J-Jp-Zxj">
                                                     <rect key="frame" x="24" y="16" width="561" height="51"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="name" translatesAutoresizingMaskIntoConstraints="NO" id="KVK-fb-PRj">
@@ -418,7 +418,7 @@
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YV6-U2-u7p">
+                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YV6-U2-u7p">
                                                                     <rect key="frame" x="0.0" y="27" width="516" height="18"/>
                                                                     <animations/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -464,7 +464,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Zp-mm-7SO">
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Zp-mm-7SO">
                                                     <rect key="frame" x="24" y="16" width="561" height="51"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="uy5-Wi-Ft2">
@@ -529,7 +529,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cMp-aZ-K9e">
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cMp-aZ-K9e">
                                                     <rect key="frame" x="24" y="16" width="561" height="51"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="hUu-nB-RPI">
@@ -612,16 +612,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="9dv-yJ-7Bi">
+                                <rect key="frame" x="0.0" y="563" width="600" height="37"/>
+                                <animations/>
+                            </pageControl>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7Q6-f9-FHn" secondAttribute="trailing" id="DM5-hS-LHT"/>
+                            <constraint firstItem="9dv-yJ-7Bi" firstAttribute="leading" secondItem="TjP-9N-FbB" secondAttribute="leading" id="W9F-JI-i4X"/>
                             <constraint firstItem="7Q6-f9-FHn" firstAttribute="top" secondItem="TjP-9N-FbB" secondAttribute="top" id="WVP-5b-Pri"/>
                             <constraint firstItem="7Q6-f9-FHn" firstAttribute="leading" secondItem="TjP-9N-FbB" secondAttribute="leading" id="bh1-1e-M17"/>
                             <constraint firstItem="tLE-eU-uUC" firstAttribute="top" secondItem="7Q6-f9-FHn" secondAttribute="bottom" id="m1U-pp-ogA"/>
+                            <constraint firstItem="tLE-eU-uUC" firstAttribute="top" secondItem="9dv-yJ-7Bi" secondAttribute="bottom" id="szM-Dx-cwj"/>
+                            <constraint firstAttribute="trailing" secondItem="9dv-yJ-7Bi" secondAttribute="trailing" id="zBv-xP-roB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="9dv-yJ-7Bi" id="VHV-wf-Spl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ysb-T5-zod" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
