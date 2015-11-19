@@ -15,6 +15,7 @@
 		BA6917931BE14C49001356A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA6917911BE14C49001356A1 /* LaunchScreen.storyboard */; };
 		BA69179E1BE14C49001356A1 /* doTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA69179D1BE14C49001356A1 /* doTests.swift */; };
 		BA6917A91BE14C49001356A1 /* doUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6917A81BE14C49001356A1 /* doUITests.swift */; };
+		BAAD7A091BFD788600512FE9 /* UImage+ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAD7A081BFD788600512FE9 /* UImage+ImageAsset.swift */; };
 		BAB17C551BE14FD90047B91F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB17C541BE14FD90047B91F /* LoginViewController.swift */; };
 		BAC82C401BF2E4F60069B13A /* TutorialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */; };
 		BAC82C421BF2E5E00069B13A /* TutorialStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */; };
@@ -58,6 +59,7 @@
 		BA6917A41BE14C49001356A1 /* doUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = doUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6917A81BE14C49001356A1 /* doUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doUITests.swift; sourceTree = "<group>"; };
 		BA6917AA1BE14C49001356A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAAD7A081BFD788600512FE9 /* UImage+ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UImage+ImageAsset.swift"; sourceTree = "<group>"; };
 		BAB17C541BE14FD90047B91F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialScreenViewController.swift; sourceTree = "<group>"; };
 		BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialStepView.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				BA6917941BE14C49001356A1 /* Info.plist */,
 				BA69178C1BE14C49001356A1 /* do.xcdatamodeld */,
 				BA6917911BE14C49001356A1 /* LaunchScreen.storyboard */,
+				BAAD7A081BFD788600512FE9 /* UImage+ImageAsset.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF1F8FC1BE2578F00DD4462 /* ProfileAvatarImage.swift in Sources */,
+				BAAD7A091BFD788600512FE9 /* UImage+ImageAsset.swift in Sources */,
 				BAB17C551BE14FD90047B91F /* LoginViewController.swift in Sources */,
 				BA6917861BE14C49001356A1 /* AppDelegate.swift in Sources */,
 				BA5EB2801BE1B97C007605DF /* SignUpViewController.swift in Sources */,

@@ -29,15 +29,15 @@ class TutorialScreenViewController: UIViewController {
         let subViewFrame = CGRect(x: leadingMargin, y: topMargin, width: subViewWidth, height: subViewHeight)
         
         
-        let firstView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(named: "Pencil")!, info: "Write notes into each tasks that was completed so you know how long or where it was completed!")
+        let firstView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(assetIdentifier: .Pencil), info: "Write notes into each tasks that was completed so you know how long or where it was completed!")
         firstView.frame.origin.y += 20
         firstView.alpha = 0.4
         
-        let secondView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(named: "tasks")!, info: "Each tasks can hold people and events, even locations!")
+        let secondView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(assetIdentifier: .Tasks), info: "Each tasks can hold people and events, even locations!")
         secondView.frame.origin.y += 50
         secondView.alpha = 0.6
         
-        let thirdView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(named: "WirelessLogo")!, info: "Wirelessly Sync all the calendars and events")
+        let thirdView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(assetIdentifier: .Wireless), info: "Wirelessly Sync all the calendars and events")
         thirdView.frame.origin.y += 80
         
         let tutorialViews = [firstView, secondView, thirdView]

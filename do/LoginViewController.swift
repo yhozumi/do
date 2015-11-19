@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
         button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         button.addTarget(self, action: Selector("goBack"), forControlEvents: UIControlEvents.TouchUpInside)
         
-        let image = UIImageView(image: UIImage(named: "back"))
+        let image = UIImageView(image: UIImage(assetIdentifier: .Back))
         image.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         button.addSubview(image)
         
