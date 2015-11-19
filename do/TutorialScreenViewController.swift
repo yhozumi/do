@@ -10,9 +10,7 @@ import UIKit
 
 
 class TutorialScreenViewController: UIViewController {
-    
-    @IBOutlet weak var pageControl: UIPageControl!
-    
+
     enum SlideDirection {
         case Left
         case Right
@@ -21,8 +19,6 @@ class TutorialScreenViewController: UIViewController {
     private var initialLocation = CGPoint.zero
     
     private var tutorialViews: [UIView]?
-    
-    private var totalViews: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,28 +46,20 @@ class TutorialScreenViewController: UIViewController {
             self.view.addSubview(view)
             let panGesture = UIPanGestureRecognizer(target: self, action: Selector("handlePan:"))
             view.addGestureRecognizer(panGesture)
-
         }
-        
-        pageControl.addTarget(self, action: Selector("pageControlTapped:"), forControlEvents: .TouchUpInside)
-        
-        pageControl.numberOfPages = tutorialViews.count
-        
-        pageControl.alpha = 0.0
-        totalViews = tutorialViews.count
     }
     
     private func cleanUpSlideView(viewToCleanUp: UIView) {
         viewToCleanUp.removeFromSuperview()
-//        totalViews = tutorialViews!.count - (totalViews! - 1)
         UIView.animateWithDuration(0.5, animations: {
             self.view.subviews.last?.alpha = 1.0
             self.view.subviews.last!.frame.origin.y += 30
             }, completion: { _ in
-//                self.pageControl.currentPage = self.totalViews!
+               
         })
     }
     
+    //slide the view back into the center for when I implement UIPageControl
     private func slideViewIn(direction: SlideDirection, viewToSlide: UIView) {
         viewToSlide.alpha = 0.0
         self.view.addSubview(viewToSlide)
@@ -104,10 +92,6 @@ class TutorialScreenViewController: UIViewController {
                     self.cleanUpSlideView(viewToSlide)
             })
         }
-    }
-    
-    func pageControlTapped(control: UIPageControl) {
-        print(control.currentPage)
     }
     
     func handlePan(gesture: UIPanGestureRecognizer) {

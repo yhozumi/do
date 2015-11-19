@@ -46,7 +46,6 @@ class TutorialStepView: UIView {
     }
     
     private func configureLabel(text: String) {
-        
         infoLabel = UILabel()
         infoLabel?.attributedText = NSAttributedString(string: text, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(17, weight: UIFontWeightLight)])
         infoLabel?.frame = CGRect(x: 0, y: 0, width: frame.width - 60, height: 0)
