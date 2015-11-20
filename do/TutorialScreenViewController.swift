@@ -18,26 +18,27 @@ class TutorialScreenViewController: UIViewController {
     
     private var initialLocation = CGPoint.zero
     
-    private var tutorialViews: [UIView]?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureViews()
+    }
+    
+    private func configureViews() {
         let subViewWidth = self.view.frame.width * 0.80
         let subViewHeight = self.view.frame.height * 0.66
         let leadingMargin = (self.view.frame.width - subViewWidth) / 2
         let topMargin = (self.view.frame.height - subViewHeight) / 3
         let subViewFrame = CGRect(x: leadingMargin, y: topMargin, width: subViewWidth, height: subViewHeight)
         
-        
-        let firstView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(assetIdentifier: .Pencil), info: "Write notes into each tasks that was completed so you know how long or where it was completed!")
+        let firstView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(assetIdentifier: .Pencil), info: "Write notes and keep track of events")
         firstView.frame.origin.y += 20
         firstView.alpha = 0.4
         
-        let secondView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(assetIdentifier: .Tasks), info: "Each tasks can hold people and events, even locations!")
+        let secondView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(assetIdentifier: .Tasks), info: "Tasks keep track of people and events")
         secondView.frame.origin.y += 50
         secondView.alpha = 0.6
         
-        let thirdView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(assetIdentifier: .Wireless), info: "Wirelessly Sync all the calendars and events")
+        let thirdView = TutorialStepView(frame: subViewFrame, iconImage: UIImage(assetIdentifier: .Wireless), info: "Wirelessly sync all events and content")
         thirdView.frame.origin.y += 80
         
         let tutorialViews = [firstView, secondView, thirdView]
