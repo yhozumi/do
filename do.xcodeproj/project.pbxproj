@@ -19,6 +19,7 @@
 		BAB17C551BE14FD90047B91F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB17C541BE14FD90047B91F /* LoginViewController.swift */; };
 		BAC82C401BF2E4F60069B13A /* TutorialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */; };
 		BAC82C421BF2E5E00069B13A /* TutorialStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */; };
+		BAEDB1ED1C05E21A0065E8C0 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */; };
 		BAF1F8FC1BE2578F00DD4462 /* ProfileAvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF1F8FB1BE2578F00DD4462 /* ProfileAvatarImage.swift */; };
 		BAF1F9091BE2616C00DD4462 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF1F9051BE2616C00DD4462 /* Task+CoreDataProperties.swift */; };
 		BAF1F90A1BE2616C00DD4462 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF1F9061BE2616C00DD4462 /* Task.swift */; };
@@ -63,6 +64,7 @@
 		BAB17C541BE14FD90047B91F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialScreenViewController.swift; sourceTree = "<group>"; };
 		BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialStepView.swift; sourceTree = "<group>"; };
+		BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		BAF1F8FB1BE2578F00DD4462 /* ProfileAvatarImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAvatarImage.swift; sourceTree = "<group>"; };
 		BAF1F9051BE2616C00DD4462 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BAF1F9061BE2616C00DD4462 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -124,7 +126,6 @@
 				BAB17C501BE14F880047B91F /* View Controller */,
 				BA6917851BE14C49001356A1 /* AppDelegate.swift */,
 				BA6917891BE14C49001356A1 /* Main.storyboard */,
-				BAB17C531BE14FAD0047B91F /* Support */,
 			);
 			path = do;
 			sourceTree = "<group>";
@@ -154,6 +155,8 @@
 				BA5EB27F1BE1B97C007605DF /* SignUpViewController.swift */,
 				BAF1F90D1BE287A600DD4462 /* SignupContainerTableViewController.swift */,
 				BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */,
+				BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */,
+				BAB17C531BE14FAD0047B91F /* Support */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				BAF1F9111BE70BB100DD4462 /* User+CoreDataProperties.swift in Sources */,
 				BAC82C401BF2E4F60069B13A /* TutorialScreenViewController.swift in Sources */,
 				BAF1F9121BE70BB100DD4462 /* User.swift in Sources */,
+				BAEDB1ED1C05E21A0065E8C0 /* SideBarViewController.swift in Sources */,
 				BAC82C421BF2E5E00069B13A /* TutorialStepView.swift in Sources */,
 				BAF1F90A1BE2616C00DD4462 /* Task.swift in Sources */,
 				BA69178E1BE14C49001356A1 /* do.xcdatamodeld in Sources */,

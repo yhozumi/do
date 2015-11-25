@@ -205,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="1117" y="398"/>
         </scene>
-        <!--View Controller-->
+        <!--Side Bar View Controller-->
         <scene sceneID="M4n-UQ-rKZ">
             <objects>
-                <viewController id="32Q-Ga-U5N" sceneMemberID="viewController">
+                <viewController id="32Q-Ga-U5N" customClass="SideBarViewController" customModule="do" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WGN-aq-R8n"/>
                         <viewControllerLayoutGuide type="bottom" id="w2b-gp-2kc"/>
@@ -223,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubz-Y1-Hv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="775" y="1193"/>
+            <point key="canvasLocation" x="1047" y="1215"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="bVh-ha-RZ8">
@@ -683,7 +683,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7M-td-Qym" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45" y="1193"/>
+            <point key="canvasLocation" x="271" y="1193"/>
         </scene>
     </scenes>
     <resources>
