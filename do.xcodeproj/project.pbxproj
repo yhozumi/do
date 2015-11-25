@@ -19,6 +19,7 @@
 		BAB17C551BE14FD90047B91F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB17C541BE14FD90047B91F /* LoginViewController.swift */; };
 		BAC82C401BF2E4F60069B13A /* TutorialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */; };
 		BAC82C421BF2E5E00069B13A /* TutorialStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */; };
+		BAE2522F1C0650BA00F2AF86 /* ProfileStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE2522E1C0650BA00F2AF86 /* ProfileStackView.swift */; };
 		BAEDB1ED1C05E21A0065E8C0 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */; };
 		BAEDB1F11C060AA60065E8C0 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEDB1F01C060AA60065E8C0 /* SideMenuTableViewController.swift */; };
 		BAF1F8FC1BE2578F00DD4462 /* ProfileAvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF1F8FB1BE2578F00DD4462 /* ProfileAvatarImage.swift */; };
@@ -65,6 +66,7 @@
 		BAB17C541BE14FD90047B91F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialScreenViewController.swift; sourceTree = "<group>"; };
 		BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialStepView.swift; sourceTree = "<group>"; };
+		BAE2522E1C0650BA00F2AF86 /* ProfileStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileStackView.swift; sourceTree = "<group>"; };
 		BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		BAEDB1F01C060AA60065E8C0 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		BAF1F8FB1BE2578F00DD4462 /* ProfileAvatarImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAvatarImage.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				BAF1F8FB1BE2578F00DD4462 /* ProfileAvatarImage.swift */,
 				BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */,
+				BAE2522E1C0650BA00F2AF86 /* ProfileStackView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				BAF1F8FC1BE2578F00DD4462 /* ProfileAvatarImage.swift in Sources */,
 				BAAD7A091BFD788600512FE9 /* UImage+ImageAsset.swift in Sources */,
 				BAB17C551BE14FD90047B91F /* LoginViewController.swift in Sources */,
+				BAE2522F1C0650BA00F2AF86 /* ProfileStackView.swift in Sources */,
 				BA6917861BE14C49001356A1 /* AppDelegate.swift in Sources */,
 				BAEDB1F11C060AA60065E8C0 /* SideMenuTableViewController.swift in Sources */,
 				BA5EB2801BE1B97C007605DF /* SignUpViewController.swift in Sources */,

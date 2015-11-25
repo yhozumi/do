@@ -64,7 +64,7 @@ class SignUpViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "continueToTutorial" {
             if let tutorialVC = segue.destinationViewController as? TutorialScreenViewController {
-                tutorialVC.title = "Sign U p"
+                tutorialVC.title = "Sign Up"
                 tutorialVC.navigationItem.leftBarButtonItem = createCustomBackButton() 
             }
         }
