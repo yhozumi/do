@@ -20,6 +20,7 @@
 		BAC82C401BF2E4F60069B13A /* TutorialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */; };
 		BAC82C421BF2E5E00069B13A /* TutorialStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */; };
 		BAE2522F1C0650BA00F2AF86 /* ProfileStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE2522E1C0650BA00F2AF86 /* ProfileStackView.swift */; };
+		BAE252311C065F3B00F2AF86 /* gradientSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE252301C065F3B00F2AF86 /* gradientSeparatorView.swift */; };
 		BAEDB1ED1C05E21A0065E8C0 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */; };
 		BAEDB1F11C060AA60065E8C0 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEDB1F01C060AA60065E8C0 /* SideMenuTableViewController.swift */; };
 		BAF1F8FC1BE2578F00DD4462 /* ProfileAvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF1F8FB1BE2578F00DD4462 /* ProfileAvatarImage.swift */; };
@@ -67,6 +68,7 @@
 		BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialScreenViewController.swift; sourceTree = "<group>"; };
 		BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialStepView.swift; sourceTree = "<group>"; };
 		BAE2522E1C0650BA00F2AF86 /* ProfileStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileStackView.swift; sourceTree = "<group>"; };
+		BAE252301C065F3B00F2AF86 /* gradientSeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gradientSeparatorView.swift; sourceTree = "<group>"; };
 		BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		BAEDB1F01C060AA60065E8C0 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		BAF1F8FB1BE2578F00DD4462 /* ProfileAvatarImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAvatarImage.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				BAF1F8FB1BE2578F00DD4462 /* ProfileAvatarImage.swift */,
 				BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */,
 				BAE2522E1C0650BA00F2AF86 /* ProfileStackView.swift */,
+				BAE252301C065F3B00F2AF86 /* gradientSeparatorView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				BAF1F9091BE2616C00DD4462 /* Task+CoreDataProperties.swift in Sources */,
 				BAF1F9111BE70BB100DD4462 /* User+CoreDataProperties.swift in Sources */,
 				BAC82C401BF2E4F60069B13A /* TutorialScreenViewController.swift in Sources */,
+				BAE252311C065F3B00F2AF86 /* gradientSeparatorView.swift in Sources */,
 				BAF1F9121BE70BB100DD4462 /* User.swift in Sources */,
 				BAEDB1ED1C05E21A0065E8C0 /* SideBarViewController.swift in Sources */,
 				BAC82C421BF2E5E00069B13A /* TutorialStepView.swift in Sources */,

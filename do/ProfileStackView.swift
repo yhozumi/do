@@ -21,6 +21,7 @@ class ProfileStackView: UIStackView {
         
     }
     
+    //Need implementation for actually entering the data of the user that is logged in.
     private func configureLabels() {
         nameLabel.text = "Yusuke Hozumi"
         emailLabel.attributedText = NSAttributedString(string: "yusuke.hozumi@icloud.com", attributes: [NSForegroundColorAttributeName: ProfileStackView.greyColor])
