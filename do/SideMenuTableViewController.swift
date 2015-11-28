@@ -19,6 +19,15 @@ class SideMenuTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.separatorStyle = .None
         self.tableView.contentInset = UIEdgeInsets(top: 22, left: 0, bottom: 0, right: 0)
+        self.tableView.scrollEnabled = false
+        
+        print(UIScreen.mainScreen().bounds.height)
+        
+        if UIScreen.mainScreen().bounds.height < 650 {
+            self.tableView.scrollEnabled = true
+            
+        }
     }
+    
 }
 
