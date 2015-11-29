@@ -25,8 +25,10 @@ class SideMenuTableViewController: UITableViewController {
         
         if UIScreen.mainScreen().bounds.height < 650 {
             self.tableView.scrollEnabled = true
-            
         }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     }
     
 }
