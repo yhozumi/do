@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VoB-zl-Lh7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -205,30 +205,10 @@
             </objects>
             <point key="canvasLocation" x="1117" y="398"/>
         </scene>
-        <!--Side Bar View Controller-->
-        <scene sceneID="M4n-UQ-rKZ">
-            <objects>
-                <viewController id="32Q-Ga-U5N" customClass="SideBarViewController" customModule="do" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WGN-aq-R8n"/>
-                        <viewControllerLayoutGuide type="bottom" id="w2b-gp-2kc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Xl9-Nx-Mdh">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="vpW-CD-Aaa"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ubz-Y1-Hv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1108" y="1199"/>
-        </scene>
         <!--Side Menu Table View Controller-->
         <scene sceneID="mw1-PU-pZz">
             <objects>
-                <tableViewController id="VoB-zl-Lh7" customClass="SideMenuTableViewController" customModule="do" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SideMenuTableViewController" id="VoB-zl-Lh7" customClass="SideMenuTableViewController" customModule="do" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="s0i-Yf-Xdv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -317,7 +297,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="dfu-sy-XgF">
                                                     <rect key="frame" x="32" y="0.0" width="536" height="57"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="WTX-7h-WCh">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" highlightedImage="homeHighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="WTX-7h-WCh">
                                                             <rect key="frame" x="0.0" y="0.0" width="22" height="57"/>
                                                             <animations/>
                                                             <constraints>
@@ -362,7 +342,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="wYJ-RZ-ARk">
                                                     <rect key="frame" x="32" y="0.0" width="536" height="57"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="Bte-lz-cd3">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" highlightedImage="calendarHighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="Bte-lz-cd3">
                                                             <rect key="frame" x="0.0" y="0.0" width="22" height="57"/>
                                                             <animations/>
                                                             <constraints>
@@ -407,7 +387,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="fk7-1q-5Ln">
                                                     <rect key="frame" x="32" y="0.0" width="536" height="57"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overview" translatesAutoresizingMaskIntoConstraints="NO" id="DQh-8X-utD">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overview" highlightedImage="overviewHighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="DQh-8X-utD">
                                                             <rect key="frame" x="0.0" y="0.0" width="22" height="57"/>
                                                             <animations/>
                                                             <constraints>
@@ -452,7 +432,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DpU-5c-HIV">
                                                     <rect key="frame" x="32" y="0.0" width="536" height="57"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group" translatesAutoresizingMaskIntoConstraints="NO" id="1zA-fL-NdZ">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group" highlightedImage="groupHighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="1zA-fL-NdZ">
                                                             <rect key="frame" x="0.0" y="0.0" width="22" height="57"/>
                                                             <animations/>
                                                             <constraints>
@@ -497,7 +477,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="qIH-Cg-iF8">
                                                     <rect key="frame" x="32" y="0.0" width="536" height="58"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lists" translatesAutoresizingMaskIntoConstraints="NO" id="yj1-LX-5kr">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lists" highlightedImage="listsHighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="yj1-LX-5kr">
                                                             <rect key="frame" x="0.0" y="0.0" width="22" height="58"/>
                                                             <animations/>
                                                             <constraints>
@@ -542,7 +522,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="SP4-rO-fWm">
                                                     <rect key="frame" x="32" y="0.0" width="536" height="58"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="jFa-68-rmG">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" highlightedImage="profileHighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="jFa-68-rmG">
                                                             <rect key="frame" x="0.0" y="0.0" width="22" height="58"/>
                                                             <animations/>
                                                             <constraints>
@@ -587,7 +567,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="bRn-Bx-RuR">
                                                     <rect key="frame" x="32" y="0.0" width="536" height="58"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timeline" translatesAutoresizingMaskIntoConstraints="NO" id="LPB-s6-EU3">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timeline" highlightedImage="timelineHighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="LPB-s6-EU3">
                                                             <rect key="frame" x="0.0" y="0.0" width="22" height="58"/>
                                                             <animations/>
                                                             <constraints>
@@ -646,7 +626,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="EUO-MQ-kUe">
                                                     <rect key="frame" x="32" y="0.0" width="536" height="58"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="ruX-Xj-oUD">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings" highlightedImage="settingsHighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="ruX-Xj-oUD">
                                                             <rect key="frame" x="0.0" y="0.0" width="22" height="58"/>
                                                             <animations/>
                                                             <constraints>
@@ -691,7 +671,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="g6w-IX-8Zg">
                                                     <rect key="frame" x="32" y="0.0" width="536" height="58"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logout" translatesAutoresizingMaskIntoConstraints="NO" id="KCA-r9-SNl">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logout" highlightedImage="logoutHighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="KCA-r9-SNl">
                                                             <rect key="frame" x="0.0" y="0.0" width="22" height="58"/>
                                                             <animations/>
                                                             <constraints>
@@ -738,7 +718,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lz6-oW-rx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1836" y="1230"/>
+            <point key="canvasLocation" x="288" y="1162"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="bVh-ha-RZ8">
@@ -1134,7 +1114,7 @@
         <!--Tutorial Screen View Controller-->
         <scene sceneID="V6L-Gv-C2t">
             <objects>
-                <viewController id="GTo-7G-e8a" customClass="TutorialScreenViewController" customModule="do" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TutorialScreenViewController" id="GTo-7G-e8a" customClass="TutorialScreenViewController" customModule="do" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gj1-ut-7lH"/>
                         <viewControllerLayoutGuide type="bottom" id="tLE-eU-uUC"/>
@@ -1181,42 +1161,32 @@
             </objects>
             <point key="canvasLocation" x="305" y="398"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wjG-Sg-kmJ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mzr-RN-EMK" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4DH-tu-MYj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="32Q-Ga-U5N" kind="relationship" relationship="rootViewController" id="OMt-HW-qbD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e7M-td-Qym" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="327" y="1199"/>
-        </scene>
     </scenes>
     <resources>
         <image name="background" width="750" height="1334"/>
         <image name="calendar" width="44" height="44"/>
+        <image name="calendarHighlighted" width="44" height="44"/>
         <image name="email" width="40" height="34"/>
         <image name="group" width="36" height="36"/>
+        <image name="groupHighlighted" width="36" height="36"/>
         <image name="home" width="50" height="44"/>
+        <image name="homeHighlighted" width="50" height="44"/>
         <image name="lists" width="41" height="34"/>
+        <image name="listsHighlighted" width="41" height="34"/>
         <image name="logout" width="40" height="42"/>
+        <image name="logoutHighlighted" width="40" height="42"/>
         <image name="mark" width="300" height="300"/>
         <image name="name" width="44" height="44"/>
         <image name="overview" width="44" height="44"/>
+        <image name="overviewHighlighted" width="44" height="44"/>
         <image name="password" width="40" height="46"/>
         <image name="phone" width="34" height="46"/>
         <image name="profile" width="44" height="44"/>
+        <image name="profileHighlighted" width="44" height="44"/>
         <image name="settings" width="42" height="42"/>
+        <image name="settingsHighlighted" width="42" height="42"/>
         <image name="signInButton" width="630" height="110"/>
         <image name="timeline" width="46" height="46"/>
+        <image name="timelineHighlighted" width="46" height="46"/>
     </resources>
 </document>

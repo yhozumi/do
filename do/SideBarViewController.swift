@@ -9,48 +9,58 @@
 import UIKit
 
 class SideBarViewController: UIViewController {
-    private var leftMenuBar: UIViewController!
-    private var mainView: UIViewController!
-    private var overlap: CGFloat!
-    private var scrollView: UIScrollView!
+    var leftViewController: UIViewController!
+    var mainViewController: UIViewController!
+    var overlap: CGFloat!
+    var scrollView: UIScrollView!
     
-    init(leftMenuBar: UIViewController, mainView: UIViewController, overlap: CGFloat) {
-        self.leftMenuBar = leftMenuBar
-        self.mainView = mainView
+    required init(coder aDecoder: NSCoder) {
+        assert(false, "Use init(leftViewController:mainViewController:overlap:)")
+        super.init(coder: aDecoder)!
+    }
+    
+    init(leftViewController: UIViewController, mainViewController: UIViewController, overlap: CGFloat) {
+        self.leftViewController = leftViewController
+        self.mainViewController = mainViewController
         self.overlap = overlap
         
         super.init(nibName: nil, bundle: nil)
         
         self.view.backgroundColor = UIColor.blackColor()
         
-        configureScrollView()
-        
+        setupScrollView()
+        setupViewControllers()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    private func configureScrollView() {
+    private func setupScrollView() {
         scrollView = UIScrollView()
+        scrollView.pagingEnabled = true
+        scrollView.bounces = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         
-        let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[scrollView]|", options: [], metrics: nil, views: ["scrollView": scrollView])
-        let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|[scrollView]|", options: [], metrics: nil, views: ["scrollView": scrollView])
-        NSLayoutConstraint.activateConstraints(horizontalConstraint + verticalConstraint)
+        let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[scrollView]|", options: [], metrics: nil, views: ["scrollView": scrollView])
+        let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[scrollView]|", options: [], metrics: nil, views: ["scrollView": scrollView])
+        NSLayoutConstraint.activateConstraints(horizontalConstraints + verticalConstraints)
     }
     
-    private func configureViewControllers() {
-        addViewController(leftMenuBar)
-        addViewController(mainView)
+    private func setupViewControllers() {
+        addViewController(leftViewController)
+        addViewController(mainViewController)
         
-        let views = ["container": view, "left": leftMenuBar.view, "main": mainView.view]
-        let horizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[left][main(==container)]|", options: [.AlignAllTop, .AlignAllBottom], metrics: nil, views: views)
-        let leftWidthConstraint = NSLayoutConstraint(item: leftMenuBar.view, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1.0, constant: -overlap)
-        let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|main(==container)|", options: [], metrics: nil, views: views)
-        
-        NSLayoutConstraint.activateConstraints(horizontalConstraint + verticalConstraint + [leftWidthConstraint])
+        let views = ["left": leftViewController.view, "main": mainViewController.view, "outer": view]
+        let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+            "|[left][main(==outer)]|", options: [.AlignAllTop, .AlignAllBottom], metrics: nil, views: views)
+        let leftWidthConstraint = NSLayoutConstraint(
+            item: leftViewController.view,
+            attribute: .Width,
+            relatedBy: .Equal,
+            toItem: view,
+            attribute: .Width,
+            multiplier: 1.0, constant: -overlap)
+        let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|[main(==outer)]|", options: [], metrics: nil, views: views)
+        NSLayoutConstraint.activateConstraints(horizontalConstraints + verticalConstraints + [leftWidthConstraint])
         
     }
     
@@ -61,3 +71,5 @@ class SideBarViewController: UIViewController {
         viewController.didMoveToParentViewController(self)
     }
 }
+
+

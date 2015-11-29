@@ -13,12 +13,26 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var sidebarVC: SideBarViewController!
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         configureNavigationBar()
         
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let menuVC = storyboard.instantiateViewControllerWithIdentifier("SideMenuTableViewController") as! SideMenuTableViewController
+        let mainVC = storyboard.instantiateViewControllerWithIdentifier("TutorialScreenViewController") as! TutorialScreenViewController
+        
+        sidebarVC = SideBarViewController(leftViewController: menuVC, mainViewController: mainVC, overlap: 50)
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.backgroundColor = UIColor.whiteColor()
+        window?.rootViewController = sidebarVC
+        window?.makeKeyAndVisible()
+        
         return true
     }
+    
+    
     
     // MARK: - Configurations
     private func configureNavigationBar() {
