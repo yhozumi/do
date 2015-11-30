@@ -37,6 +37,7 @@ class SideBarViewController: UIViewController {
         scrollView.pagingEnabled = true
         scrollView.bounces = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsHorizontalScrollIndicator = false
         view.addSubview(scrollView)
         
         let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[scrollView]|", options: [], metrics: nil, views: ["scrollView": scrollView])

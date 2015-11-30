@@ -20,10 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let menuVC = storyboard.instantiateViewControllerWithIdentifier("SideMenuTableViewController") as! SideMenuTableViewController
-        let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainVCNav")
-        mainVC.navigationController?.navigationBarHidden = true
+        let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainVCNav") as! UINavigationController
+        configureTranslucentNavigationBar(mainVC)
         
-        sidebarVC = SideBarViewController(leftViewController: menuVC, mainViewController: mainVC, overlap: 50)
+        let overlap = UIScreen.mainScreen().bounds.width / 5
+        
+        sidebarVC = SideBarViewController(leftViewController: menuVC, mainViewController: mainVC, overlap: overlap)
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
@@ -31,6 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    private func configureTranslucentNavigationBar(navigationVC: UINavigationController) {
+        navigationVC.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationVC.navigationBar.translucent = true
+        navigationVC.navigationBar.shadowImage = UIImage()
     }
     
     
