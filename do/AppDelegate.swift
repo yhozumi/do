@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let menuVC = storyboard.instantiateViewControllerWithIdentifier("SideMenuTableViewController") as! SideMenuTableViewController
-        let mainVC = storyboard.instantiateViewControllerWithIdentifier("TutorialScreenViewController") as! TutorialScreenViewController
+        let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainVCNav")
+        mainVC.navigationController?.navigationBarHidden = true
         
         sidebarVC = SideBarViewController(leftViewController: menuVC, mainViewController: mainVC, overlap: 50)
         
