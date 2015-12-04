@@ -20,6 +20,7 @@ extension UIImage {
         case Lists = "lists"
         case Logout = "logout"
         case Mark = "mark"
+        case Menu = "menu"
         case Name = "name"
         case Overview = "overview"
         case Password = "password"
