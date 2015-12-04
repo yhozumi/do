@@ -13,6 +13,8 @@ class SideBarViewController: UIViewController {
     var overlap: CGFloat!
     var scrollView: UIScrollView!
     
+    private var isMenuOpened: Bool?
+    
     required init(coder aDecoder: NSCoder) {
         assert(false, "Use init(leftViewController:mainViewController:overlap:)")
         super.init(coder: aDecoder)!
@@ -31,17 +33,30 @@ class SideBarViewController: UIViewController {
         setupViewControllers()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.scrollView.contentOffset.x = leftViewController.view.frame.width
+        isMenuOpened = false
+    }
+    
     private func setupScrollView() {
         scrollView = UIScrollView()
         scrollView.pagingEnabled = true
         scrollView.bounces = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.delegate = self
         view.addSubview(scrollView)
         
         let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[scrollView]|", options: [], metrics: nil, views: ["scrollView": scrollView])
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[scrollView]|", options: [], metrics: nil, views: ["scrollView": scrollView])
         NSLayoutConstraint.activateConstraints(horizontalConstraints + verticalConstraints)
+        
+        guard let mainViewController = mainViewController as? UINavigationController else { return }
+        if let homeScreenVC = mainViewController.viewControllers[0] as? HomeScreenViewController {
+            homeScreenVC.delegate = self
+        }
     }
     
     private func setupViewControllers() {
@@ -74,8 +89,24 @@ class SideBarViewController: UIViewController {
 
 extension SideBarViewController: HomeScreenViewControllerDelegate {
     func homeScreenViewControllerDidPressMenuButton() {
-        
+        if isMenuOpened! {
+            UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseInOut, animations: {
+                self.scrollView.contentOffset.x = self.leftViewController.view.frame.width
+                }, completion: { _ in
+                    self.isMenuOpened! = false
+            })
+        } else {
+            UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseIn, animations: {
+                self.scrollView.contentOffset.x = 0.0
+                }, completion: { _ in
+                    self.isMenuOpened! = true
+            })
+        }
     }
+}
+
+extension SideBarViewController: UIScrollViewDelegate {
+    
 }
 
 
