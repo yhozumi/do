@@ -51,9 +51,7 @@ class SideMenuTableViewController: UITableViewController {
     }
     
     private func setAlphaOnNotificationLabels(labels: [UILabel]) {
-        for label in labels {
-            label.alpha = 0.0
-        }
+        let _ = labels.map{ $0.alpha = 0.0 }
     }
 }
 
