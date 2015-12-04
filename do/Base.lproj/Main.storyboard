@@ -205,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="1117" y="398"/>
         </scene>
-        <!--View Controller-->
+        <!--Home Screen View Controller-->
         <scene sceneID="qnc-FC-jdq">
             <objects>
-                <viewController storyboardIdentifier="MainVC" id="Zod-Zh-TLH" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="Zod-Zh-TLH" customClass="HomeScreenViewController" customModule="do" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3nL-rU-lWL"/>
                         <viewControllerLayoutGuide type="bottom" id="Rx6-a4-Oy8"/>

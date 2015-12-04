@@ -5,7 +5,6 @@
 //  Created by Yusuke Hozumi on 11/25/15.
 //  Copyright © 2015 Yusuke Hozumi. All rights reserved.
 //
-
 import UIKit
 
 class SideBarViewController: UIViewController {
@@ -72,5 +71,12 @@ class SideBarViewController: UIViewController {
         viewController.didMoveToParentViewController(self)
     }
 }
+
+extension SideBarViewController: HomeScreenViewControllerDelegate {
+    func homeScreenViewControllerDidPressMenuButton() {
+        
+    }
+}
+
 
 
