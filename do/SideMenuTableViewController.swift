@@ -9,8 +9,30 @@
 import UIKit
 
 class SideMenuTableViewController: UITableViewController {
+
+    @IBOutlet weak var homeNoificationlabel: UILabel!
+    @IBOutlet weak var calendarNotificationlabel: UILabel!
+    @IBOutlet weak var overviewNotificationLabel: UILabel!
+    @IBOutlet weak var groupsNotificationLabel: UILabel!
+    @IBOutlet weak var listsNotificationLabel: UILabel!
+    @IBOutlet weak var profileNotificationLabel: UILabel!
+    @IBOutlet weak var timelineNotificationLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let labels: [UILabel] = [
+            homeNoificationlabel,
+            calendarNotificationlabel,
+            overviewNotificationLabel,
+            groupsNotificationLabel,
+            listsNotificationLabel,
+            profileNotificationLabel,
+            timelineNotificationLabel
+        ]
+        
+        setAlphaOnNotificationLabels(labels)
         
         configureTableView()
     }
@@ -28,5 +50,11 @@ class SideMenuTableViewController: UITableViewController {
         }
     }
     
+    private func setAlphaOnNotificationLabels(labels: [UILabel]) {
+        for label in labels {
+            label.alpha = 0.0
+        }
+    }
 }
+
 
