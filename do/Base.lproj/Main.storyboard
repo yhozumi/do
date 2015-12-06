@@ -18,10 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="VHZ-Qu-bC9">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ynS-Co-LQm">
                                 <rect key="frame" x="35" y="415" width="530" height="45"/>
                                 <subviews>
@@ -162,6 +158,10 @@
                                     <constraint firstAttribute="width" constant="140" id="l6K-mk-xDE"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="VHZ-Qu-bC9">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <constraints>
@@ -170,8 +170,6 @@
                             <constraint firstItem="IiG-vg-XP5" firstAttribute="top" secondItem="Vjp-oT-JbJ" secondAttribute="bottom" constant="71" id="5HV-Cv-4JO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZLB-aT-xSa" secondAttribute="bottom" constant="15" id="60L-6Q-1rO"/>
                             <constraint firstItem="ynS-Co-LQm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="74F-za-DXD"/>
-                            <constraint firstItem="ZLB-aT-xSa" firstAttribute="top" secondItem="VHZ-Qu-bC9" secondAttribute="bottom" constant="-31" id="8bz-OF-mN0"/>
-                            <constraint firstItem="qHk-Er-uJd" firstAttribute="top" secondItem="VHZ-Qu-bC9" secondAttribute="bottom" constant="-31" id="HQM-fI-7ca"/>
                             <constraint firstItem="VHZ-Qu-bC9" firstAttribute="top" secondItem="Vjp-oT-JbJ" secondAttribute="top" constant="-120" id="Lj6-qZ-u1p"/>
                             <constraint firstAttribute="trailing" secondItem="VHZ-Qu-bC9" secondAttribute="trailing" id="LjI-pl-X3Z"/>
                             <constraint firstItem="t8z-iF-igr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ROb-iK-Wjm" secondAttribute="bottom" constant="29" id="OCp-Ol-H1R"/>
@@ -187,12 +185,6 @@
                             <constraint firstItem="ROb-iK-Wjm" firstAttribute="top" secondItem="IiG-vg-XP5" secondAttribute="bottom" constant="40" id="tny-jr-3rK"/>
                             <constraint firstItem="t8z-iF-igr" firstAttribute="centerX" secondItem="VHZ-Qu-bC9" secondAttribute="centerX" id="yJV-J6-9zs"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="8bz-OF-mN0"/>
-                                <exclude reference="HQM-fI-7ca"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="igf-Ag-tD9"/>
                     <connections>

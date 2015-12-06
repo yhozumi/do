@@ -13,8 +13,6 @@ class SignupContainerTableViewController: UITableViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
-
-    private let lightGreyColor = UIColor(red: 189/255.0, green: 191/255.0, blue: 198/250.0, alpha: 0.8)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +20,7 @@ class SignupContainerTableViewController: UITableViewController {
         tableView.backgroundColor = UIColor.clearColor()
         tableView.scrollEnabled = false
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        configureTextFieldWithAttributes([NSForegroundColorAttributeName: lightGreyColor])
+        configureTextFieldWithAttributes([NSForegroundColorAttributeName: UIColor.whiteLightGreyColor()])
         
     }
     

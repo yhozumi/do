@@ -13,12 +13,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logoTopLayout: NSLayoutConstraint!
-    
-    private let lightGreyColor = UIColor(red: 142/255.0, green: 144/255.0, blue: 150/250.0, alpha: 0.8)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTextFieldsWithAttributes([NSForegroundColorAttributeName: lightGreyColor])
+        configureTextFieldsWithAttributes([NSForegroundColorAttributeName: UIColor.whiteLightGreyColor()])
         self.setupTransparentNavigation()
     }
     
