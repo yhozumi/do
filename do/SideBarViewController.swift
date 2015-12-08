@@ -7,20 +7,26 @@
 //
 import UIKit
 
+protocol SideBarViewControllerDelegate: class {
+    func sideBarViewControllerDidSelectRow(controller: UIViewController)
+}
+
 class SideBarViewController: UIViewController {
-    var leftViewController: UIViewController!
+    var leftViewController: UITableViewController!
     var mainViewController: UIViewController!
     var overlap: CGFloat!
     var scrollView: UIScrollView!
     
     private var isMenuOpened: Bool?
     
+    weak var sideBarDelegate: SideBarViewControllerDelegate?
+    
     required init(coder aDecoder: NSCoder) {
         assert(false, "Use init(leftViewController:mainViewController:overlap:)")
         super.init(coder: aDecoder)!
     }
     
-    init(leftViewController: UIViewController, mainViewController: UIViewController, overlap: CGFloat) {
+    init(leftViewController: UITableViewController, mainViewController: UIViewController, overlap: CGFloat) {
         self.leftViewController = leftViewController
         self.mainViewController = mainViewController
         self.overlap = overlap

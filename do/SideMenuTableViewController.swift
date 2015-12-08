@@ -37,6 +37,29 @@ class SideMenuTableViewController: UITableViewController {
         configureTableView()
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.section {
+        case 0:
+            break //Do nothing for now. Change the code later to change the profile picture
+        case 1:
+            switch indexPath.row {
+            case 0: //Home
+            case 1: //Calendar
+            case 2: //Overview
+            case 3: //Groups
+            case 4: //Lists
+            case 5: //Profile
+            case 6: //timeLine
+            }
+        case 2:
+            switch indexPath.row {
+            case 0:
+            case 1:
+            }
+        
+        }
+    }
+    
     private func configureTableView() {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.separatorStyle = .None
