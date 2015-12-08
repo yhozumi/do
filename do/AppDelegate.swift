@@ -17,7 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         configureNavigationBar()
-        
+        setUpSideBarViewController()
+        return true
+    }
+    
+    private func setUpSideBarViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let menuVC = storyboard.instantiateViewControllerWithIdentifier("SideMenuTableViewController") as! SideMenuTableViewController
         let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainVCNav") as! UINavigationController
@@ -31,8 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.whiteColor()
         window?.rootViewController = sidebarVC
         window?.makeKeyAndVisible()
-        
-        return true
     }
     
     private func configureTranslucentNavigationBar(navigationVC: UINavigationController) {
@@ -117,6 +119,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
+
+extension AppDelegate: SideMenuTableViewControllerDelegate {
+    func sideMenuTableViewControllerDidSelectRowAtIndexPath(controller: UITableViewController, indexPath: NSIndexPath) {
+        
+    }
+}
+
+
+
 

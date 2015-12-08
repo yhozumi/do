@@ -7,19 +7,13 @@
 //
 import UIKit
 
-protocol SideBarViewControllerDelegate: class {
-    func sideBarViewControllerDidSelectRow(controller: UIViewController)
-}
-
 class SideBarViewController: UIViewController {
-    var leftViewController: UITableViewController!
-    var mainViewController: UIViewController!
-    var overlap: CGFloat!
-    var scrollView: UIScrollView!
+    private var leftViewController: UITableViewController!
+    private var mainViewController: UIViewController!
+    private var overlap: CGFloat!
+    private var scrollView: UIScrollView!
     
     private var isMenuOpened: Bool?
-    
-    weak var sideBarDelegate: SideBarViewControllerDelegate?
     
     required init(coder aDecoder: NSCoder) {
         assert(false, "Use init(leftViewController:mainViewController:overlap:)")
@@ -112,7 +106,9 @@ extension SideBarViewController: HomeScreenViewControllerDelegate {
 }
 
 extension SideBarViewController: UIScrollViewDelegate {
-    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        isMenuOpened? = scrollView.contentOffset.x == 0.0
+    }
 }
 
 

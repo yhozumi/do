@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SideMenuTableViewControllerDelegate: class {
+    func sideMenuTableViewControllerDidSelectRowAtIndexPath(controller: UITableViewController, indexPath: NSIndexPath)
+}
+
 class SideMenuTableViewController: UITableViewController {
 
     @IBOutlet weak var homeNoificationlabel: UILabel!
@@ -18,6 +22,7 @@ class SideMenuTableViewController: UITableViewController {
     @IBOutlet weak var profileNotificationLabel: UILabel!
     @IBOutlet weak var timelineNotificationLabel: UILabel!
     
+    weak var sideMenuTableViewDelegate: SideMenuTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,26 +43,7 @@ class SideMenuTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch indexPath.section {
-        case 0:
-            break //Do nothing for now. Change the code later to change the profile picture
-        case 1:
-            switch indexPath.row {
-            case 0: //Home
-            case 1: //Calendar
-            case 2: //Overview
-            case 3: //Groups
-            case 4: //Lists
-            case 5: //Profile
-            case 6: //timeLine
-            }
-        case 2:
-            switch indexPath.row {
-            case 0:
-            case 1:
-            }
-        
-        }
+        sideMenuTableViewDelegate?.sideMenuTableViewControllerDidSelectRowAtIndexPath(self, indexPath: indexPath)
     }
     
     private func configureTableView() {
