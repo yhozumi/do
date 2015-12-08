@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setUpSideBarViewController() {
         let menuVC = storyboard.instantiateViewControllerWithIdentifier("SideMenuTableViewController") as! SideMenuTableViewController
-        let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainVCNav") as! UINavigationController
+        let mainVC = storyboard.instantiateViewControllerWithIdentifier("Home") as! UINavigationController
         configureTranslucentNavigationBar(mainVC)
         
         let overlap = UIScreen.mainScreen().bounds.width / 5
@@ -54,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func instantiateAndAddViewControllerToMainView(tableCellName: SideMenuTableCellName) {
         let toAddViewController = self.storyboard.instantiateViewControllerWithIdentifier(tableCellName.rawValue)
+        
     }
 
 
@@ -79,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
-        // Create the coordinator and store
+        // Create the coordinator and store b
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
@@ -129,7 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: SideMenuTableViewControllerDelegate {
     func sideMenuTableViewControllerDidSelectRowAtIndexPath(controller: UITableViewController, tableCellName: SideMenuTableCellName) {
-        print("Side menu delegate called \(tableCellName.rawValue)")
+        instantiateAndAddViewControllerToMainView(tableCellName)
     }
 }
 

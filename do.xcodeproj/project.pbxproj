@@ -19,6 +19,7 @@
 		BA6917A91BE14C49001356A1 /* doUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6917A81BE14C49001356A1 /* doUITests.swift */; };
 		BAAD7A091BFD788600512FE9 /* UImage+ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAD7A081BFD788600512FE9 /* UImage+ImageAsset.swift */; };
 		BAB17C551BE14FD90047B91F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB17C541BE14FD90047B91F /* LoginViewController.swift */; };
+		BAB531911C179EFC00458245 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB531901C179EFC00458245 /* CalendarViewController.swift */; };
 		BAC82C401BF2E4F60069B13A /* TutorialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */; };
 		BAC82C421BF2E5E00069B13A /* TutorialStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */; };
 		BAC9FD471C0CBBA100C6E11E /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */; };
@@ -70,6 +71,7 @@
 		BA6917AA1BE14C49001356A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAAD7A081BFD788600512FE9 /* UImage+ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UImage+ImageAsset.swift"; sourceTree = "<group>"; };
 		BAB17C541BE14FD90047B91F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BAB531901C179EFC00458245 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialScreenViewController.swift; sourceTree = "<group>"; };
 		BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialStepView.swift; sourceTree = "<group>"; };
 		BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				BAEDB1F01C060AA60065E8C0 /* SideMenuTableViewController.swift */,
 				BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */,
 				BAB17C531BE14FAD0047B91F /* Support */,
+				BAB531901C179EFC00458245 /* CalendarViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				BAC9FD471C0CBBA100C6E11E /* HomeScreenViewController.swift in Sources */,
 				BAF1F9111BE70BB100DD4462 /* User+CoreDataProperties.swift in Sources */,
 				BAC82C401BF2E4F60069B13A /* TutorialScreenViewController.swift in Sources */,
+				BAB531911C179EFC00458245 /* CalendarViewController.swift in Sources */,
 				BAE252311C065F3B00F2AF86 /* gradientSeparatorView.swift in Sources */,
 				BAF1F9121BE70BB100DD4462 /* User.swift in Sources */,
 				BAEDB1ED1C05E21A0065E8C0 /* SideBarViewController.swift in Sources */,

@@ -14,7 +14,7 @@ class SideBarViewController: UIViewController {
     
     var mainViewController: UIViewController! {
         didSet {
-            
+            oldValue.removeFromParentViewController()
         }
     }
     
