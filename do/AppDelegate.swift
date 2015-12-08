@@ -129,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: SideMenuTableViewControllerDelegate {
     func sideMenuTableViewControllerDidSelectRowAtIndexPath(controller: UITableViewController, tableCellName: SideMenuTableCellName) {
-        print("Side menu delegate called")
+        print("Side menu delegate called \(tableCellName.rawValue)")
     }
 }
 

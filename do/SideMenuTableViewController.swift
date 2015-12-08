@@ -62,13 +62,14 @@ class SideMenuTableViewController: UITableViewController {
         case 0: break //change code to change profile pics or direct to profile page.
         case 1:
             switch indexPath.row {
-            case 0: tableCellName = SideMenuTableCellName.Home
-            case 1: tableCellName = SideMenuTableCellName.Calendar
-            case 2: tableCellName = SideMenuTableCellName.Overview
-            case 3: tableCellName = SideMenuTableCellName.Groups
-            case 4: tableCellName = SideMenuTableCellName.Lists
-            case 5: tableCellName = SideMenuTableCellName.Profile
-            case 6: tableCellName = SideMenuTableCellName.Timeline
+            case 0: break //Empty Static cell for spacing.
+            case 1: tableCellName = SideMenuTableCellName.Home
+            case 2: tableCellName = SideMenuTableCellName.Calendar
+            case 3: tableCellName = SideMenuTableCellName.Overview
+            case 4: tableCellName = SideMenuTableCellName.Groups
+            case 5: tableCellName = SideMenuTableCellName.Lists
+            case 6: tableCellName = SideMenuTableCellName.Profile
+            case 7: tableCellName = SideMenuTableCellName.Timeline
             default: break
             }
         case 2:
