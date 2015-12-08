@@ -9,9 +9,14 @@ import UIKit
 
 class SideBarViewController: UIViewController {
     private var leftViewController: UITableViewController!
-    private var mainViewController: UIViewController!
     private var overlap: CGFloat!
     private var scrollView: UIScrollView!
+    
+    var mainViewController: UIViewController! {
+        didSet {
+            
+        }
+    }
     
     private var isMenuOpened: Bool?
     

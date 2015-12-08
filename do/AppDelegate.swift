@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var sidebarVC: SideBarViewController!
+    let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         configureNavigationBar()
@@ -22,12 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setUpSideBarViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let menuVC = storyboard.instantiateViewControllerWithIdentifier("SideMenuTableViewController") as! SideMenuTableViewController
         let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainVCNav") as! UINavigationController
         configureTranslucentNavigationBar(mainVC)
         
         let overlap = UIScreen.mainScreen().bounds.width / 5
+        
+        menuVC.sideMenuTableViewDelegate = self
         
         sidebarVC = SideBarViewController(leftViewController: menuVC, mainViewController: mainVC, overlap: overlap)
         
@@ -48,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Configurations
     private func configureNavigationBar() {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(18, weight: UIFontWeightLight)]
+    }
+    
+    private func instantiateAndAddViewControllerToMainView(tableCellName: SideMenuTableCellName) {
+        let toAddViewController = self.storyboard.instantiateViewControllerWithIdentifier(tableCellName.rawValue)
     }
 
 
@@ -122,8 +128,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: SideMenuTableViewControllerDelegate {
-    func sideMenuTableViewControllerDidSelectRowAtIndexPath(controller: UITableViewController, indexPath: NSIndexPath) {
-        
+    func sideMenuTableViewControllerDidSelectRowAtIndexPath(controller: UITableViewController, tableCellName: SideMenuTableCellName) {
+        print("Side menu delegate called")
     }
 }
 

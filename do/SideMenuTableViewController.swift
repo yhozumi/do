@@ -9,11 +9,23 @@
 import UIKit
 
 protocol SideMenuTableViewControllerDelegate: class {
-    func sideMenuTableViewControllerDidSelectRowAtIndexPath(controller: UITableViewController, indexPath: NSIndexPath)
+    func sideMenuTableViewControllerDidSelectRowAtIndexPath(controller: UITableViewController, tableCellName: SideMenuTableCellName)
+}
+
+enum SideMenuTableCellName: String {
+    case Home = "Home"
+    case Calendar = "Calendar"
+    case Overview = "Overview"
+    case Groups = "Groups"
+    case Lists = "Lists"
+    case Profile = "Profile"
+    case Timeline = "Timeline"
+    case Settings = "Settings"
+    case Logout = "Logout"
 }
 
 class SideMenuTableViewController: UITableViewController {
-
+    
     @IBOutlet weak var homeNoificationlabel: UILabel!
     @IBOutlet weak var calendarNotificationlabel: UILabel!
     @IBOutlet weak var overviewNotificationLabel: UILabel!
@@ -43,7 +55,34 @@ class SideMenuTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        sideMenuTableViewDelegate?.sideMenuTableViewControllerDidSelectRowAtIndexPath(self, indexPath: indexPath)
+        
+        var tableCellName: SideMenuTableCellName?
+        
+        switch indexPath.section {
+        case 0: break //change code to change profile pics or direct to profile page.
+        case 1:
+            switch indexPath.row {
+            case 0: tableCellName = SideMenuTableCellName.Home
+            case 1: tableCellName = SideMenuTableCellName.Calendar
+            case 2: tableCellName = SideMenuTableCellName.Overview
+            case 3: tableCellName = SideMenuTableCellName.Groups
+            case 4: tableCellName = SideMenuTableCellName.Lists
+            case 5: tableCellName = SideMenuTableCellName.Profile
+            case 6: tableCellName = SideMenuTableCellName.Timeline
+            default: break
+            }
+        case 2:
+            switch indexPath.row {
+            case 0: tableCellName = SideMenuTableCellName.Settings
+            case 1: tableCellName = SideMenuTableCellName.Logout
+            default: break
+            }
+        default: break
+        }
+        
+        if let tableCellName = tableCellName {
+            sideMenuTableViewDelegate?.sideMenuTableViewControllerDidSelectRowAtIndexPath(self, tableCellName: tableCellName)
+        }
     }
     
     private func configureTableView() {
