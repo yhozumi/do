@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var sidebarVC: SideBarViewController!
     let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+    var mainNavVC = UINavigationController()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         configureNavigationBar()
@@ -24,14 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setUpSideBarViewController() {
         let menuVC = storyboard.instantiateViewControllerWithIdentifier("SideMenuTableViewController") as! SideMenuTableViewController
-        let mainVC = storyboard.instantiateViewControllerWithIdentifier("Home") as! UINavigationController
-        configureTranslucentNavigationBar(mainVC)
+        mainNavVC = storyboard.instantiateViewControllerWithIdentifier("MainNavigationVC") as! UINavigationController
+        configureTranslucentNavigationBar(mainNavVC)
         
         let overlap = UIScreen.mainScreen().bounds.width / 5
         
         menuVC.sideMenuTableViewDelegate = self
         
-        sidebarVC = SideBarViewController(leftViewController: menuVC, mainViewController: mainVC, overlap: overlap)
+        sidebarVC = SideBarViewController(leftViewController: menuVC, mainViewController: mainNavVC, overlap: overlap)
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
@@ -54,7 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func instantiateAndAddViewControllerToMainView(tableCellName: SideMenuTableCellName) {
         let toAddViewController = self.storyboard.instantiateViewControllerWithIdentifier(tableCellName.rawValue)
-        
+        if mainNavVC.topViewController != toAddViewController {
+            mainNavVC.setViewControllers([toAddViewController], animated: true)
+        }
     }
 
 
@@ -128,8 +131,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+
 extension AppDelegate: SideMenuTableViewControllerDelegate {
-    func sideMenuTableViewControllerDidSelectRowAtIndexPath(controller: UITableViewController, tableCellName: SideMenuTableCellName) {
+    func sideMenuTableViewController(controller: UITableViewController, didSelectTableCell tableCellName: SideMenuTableCellName) {
         instantiateAndAddViewControllerToMainView(tableCellName)
     }
 }

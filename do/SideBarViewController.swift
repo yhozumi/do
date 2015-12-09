@@ -11,12 +11,7 @@ class SideBarViewController: UIViewController {
     private var leftViewController: UITableViewController!
     private var overlap: CGFloat!
     private var scrollView: UIScrollView!
-    
-    var mainViewController: UIViewController! {
-        didSet {
-            oldValue.removeFromParentViewController()
-        }
-    }
+    private var mainViewController: UIViewController!
     
     private var isMenuOpened: Bool?
     
@@ -94,17 +89,18 @@ class SideBarViewController: UIViewController {
 
 extension SideBarViewController: HomeScreenViewControllerDelegate {
     func homeScreenViewControllerDidPressMenuButton() {
-        if isMenuOpened! {
+        guard let isMenuOpened = isMenuOpened else { return }
+        if isMenuOpened {
             UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseInOut, animations: {
                 self.scrollView.contentOffset.x = self.leftViewController.view.frame.width
                 }, completion: { _ in
-                    self.isMenuOpened! = false
+                    self.isMenuOpened = false
             })
         } else {
             UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseIn, animations: {
                 self.scrollView.contentOffset.x = 0.0
                 }, completion: { _ in
-                    self.isMenuOpened! = true
+                    self.isMenuOpened = true
             })
         }
     }

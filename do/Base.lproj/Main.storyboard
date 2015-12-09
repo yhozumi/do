@@ -183,7 +183,7 @@
         <!--Home Screen View Controller-->
         <scene sceneID="qnc-FC-jdq">
             <objects>
-                <viewController id="Zod-Zh-TLH" customClass="HomeScreenViewController" customModule="do" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="Zod-Zh-TLH" customClass="HomeScreenViewController" customModule="do" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3nL-rU-lWL"/>
                         <viewControllerLayoutGuide type="bottom" id="Rx6-a4-Oy8"/>
@@ -1084,7 +1084,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Jby-Ds-UYZ">
             <objects>
-                <navigationController storyboardIdentifier="Home" automaticallyAdjustsScrollViewInsets="NO" id="3Xt-4H-4rN" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="3Xt-4H-4rN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GSh-C5-g5V">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1099,26 +1099,10 @@
             </objects>
             <point key="canvasLocation" x="994" y="1171"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Wfx-RE-TZN">
-            <objects>
-                <navigationController storyboardIdentifier="Calendar" id="dgX-68-5Cj" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Baq-4e-mMV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Chr-S3-8D1" kind="relationship" relationship="rootViewController" id="e0T-UH-2xc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vNp-1v-nmW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="978" y="1911"/>
-        </scene>
         <!--Calendar View Controller-->
         <scene sceneID="GXK-ku-vli">
             <objects>
-                <viewController id="Chr-S3-8D1" customClass="CalendarViewController" customModule="do" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Calendar" id="Chr-S3-8D1" customClass="CalendarViewController" customModule="do" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vv1-vq-Ayt"/>
                         <viewControllerLayoutGuide type="bottom" id="KA5-gl-3F7"/>

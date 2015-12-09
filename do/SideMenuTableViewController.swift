@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SideMenuTableViewControllerDelegate: class {
-    func sideMenuTableViewControllerDidSelectRowAtIndexPath(controller: UITableViewController, tableCellName: SideMenuTableCellName)
+    func sideMenuTableViewController(controller: UITableViewController, didSelectTableCell tableCellName: SideMenuTableCellName)
 }
 
 enum SideMenuTableCellName: String {
@@ -82,7 +82,7 @@ class SideMenuTableViewController: UITableViewController {
         }
         
         if let tableCellName = tableCellName {
-            sideMenuTableViewDelegate?.sideMenuTableViewControllerDidSelectRowAtIndexPath(self, tableCellName: tableCellName)
+            sideMenuTableViewDelegate?.sideMenuTableViewController(self, didSelectTableCell: tableCellName)
         }
     }
     

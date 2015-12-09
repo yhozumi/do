@@ -172,8 +172,8 @@
 				BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */,
 				BAEDB1F01C060AA60065E8C0 /* SideMenuTableViewController.swift */,
 				BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */,
-				BAB17C531BE14FAD0047B91F /* Support */,
 				BAB531901C179EFC00458245 /* CalendarViewController.swift */,
+				BAB17C531BE14FAD0047B91F /* Support */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
