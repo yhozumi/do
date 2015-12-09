@@ -1081,10 +1081,10 @@
             </objects>
             <point key="canvasLocation" x="305" y="398"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main View Navigation Controller-->
         <scene sceneID="Jby-Ds-UYZ">
             <objects>
-                <navigationController storyboardIdentifier="MainNavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="3Xt-4H-4rN" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="3Xt-4H-4rN" customClass="MainViewNavigationController" customModule="do" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GSh-C5-g5V">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1110,7 +1110,18 @@
                     <view key="view" contentMode="scaleToFill" id="ZR4-l3-lYM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="hwc-iD-NPk">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hwc-iD-NPk" secondAttribute="trailing" id="9a1-Nw-jc6"/>
+                            <constraint firstItem="KA5-gl-3F7" firstAttribute="top" secondItem="hwc-iD-NPk" secondAttribute="bottom" id="Oh6-LI-Qis"/>
+                            <constraint firstItem="hwc-iD-NPk" firstAttribute="top" secondItem="vv1-vq-Ayt" secondAttribute="bottom" id="QZL-lE-TcS"/>
+                            <constraint firstItem="hwc-iD-NPk" firstAttribute="leading" secondItem="ZR4-l3-lYM" secondAttribute="leading" id="ti9-xM-UiG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KwS-9b-KXS"/>
                 </viewController>

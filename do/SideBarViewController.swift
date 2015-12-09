@@ -53,9 +53,8 @@ class SideBarViewController: UIViewController {
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[scrollView]|", options: [], metrics: nil, views: ["scrollView": scrollView])
         NSLayoutConstraint.activateConstraints(horizontalConstraints + verticalConstraints)
         
-        guard let mainViewController = mainViewController as? UINavigationController else { return }
-        if let homeScreenVC = mainViewController.viewControllers[0] as? HomeScreenViewController {
-            homeScreenVC.delegate = self
+        if let mainViewController = mainViewController as? MainViewNavigationController {
+            mainViewController.mainViewNavigationControllerDelegate = self
         }
     }
     
@@ -87,8 +86,8 @@ class SideBarViewController: UIViewController {
     }
 }
 
-extension SideBarViewController: HomeScreenViewControllerDelegate {
-    func homeScreenViewControllerDidPressMenuButton() {
+extension SideBarViewController: MainViewNavigationControllerDelgate {
+    func mainViewNavigationController(controller: UINavigationController) {
         guard let isMenuOpened = isMenuOpened else { return }
         if isMenuOpened {
             UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseInOut, animations: {

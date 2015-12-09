@@ -25,8 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setUpSideBarViewController() {
         let menuVC = storyboard.instantiateViewControllerWithIdentifier("SideMenuTableViewController") as! SideMenuTableViewController
-        mainNavVC = storyboard.instantiateViewControllerWithIdentifier("MainNavigationVC") as! UINavigationController
-        configureTranslucentNavigationBar(mainNavVC)
+        mainNavVC = storyboard.instantiateViewControllerWithIdentifier("MainNavigationVC") as! MainViewNavigationController
         
         let overlap = UIScreen.mainScreen().bounds.width / 5
         
@@ -39,13 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = sidebarVC
         window?.makeKeyAndVisible()
     }
-    
-    private func configureTranslucentNavigationBar(navigationVC: UINavigationController) {
-        navigationVC.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        navigationVC.navigationBar.translucent = true
-        navigationVC.navigationBar.shadowImage = UIImage()
-    }
-    
     
     
     // MARK: - Configurations
@@ -135,6 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: SideMenuTableViewControllerDelegate {
     func sideMenuTableViewController(controller: UITableViewController, didSelectTableCell tableCellName: SideMenuTableCellName) {
         instantiateAndAddViewControllerToMainView(tableCellName)
+    
     }
 }
 
