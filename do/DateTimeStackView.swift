@@ -12,10 +12,7 @@ class DateTimeStackView: UIStackView {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
-    @IBOutlet weak var clockView: UIView!
-    
-    private var text: String = "test"
-    
+    @IBOutlet weak var clockView: UIView!    
     
     private lazy var date: NSDate = {
         let today = NSDate()
