@@ -43,16 +43,14 @@ class MainViewNavigationController: UINavigationController {
     }
     
     private func configureTranslucentNavigationBar() {
-//        self.topViewController?.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-//        self.topViewController?.navigationController!.navigationBar.translucent = true
-//        self.topViewController?.navigationController!.navigationBar.shadowImage = UIImage()
-//        print("configure translucent method called") 
+        self.topViewController?.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.topViewController?.navigationController!.navigationBar.translucent = true
+        self.topViewController?.navigationController!.navigationBar.shadowImage = UIImage()
     }
     
     private func addButtonAndTranslucentBar() {
         configureTranslucentNavigationBar()
         self.topViewController?.navigationItem.leftBarButtonItem = createMenubutton(.Menu)
-        print("addButton method called")
     }
 }
 
