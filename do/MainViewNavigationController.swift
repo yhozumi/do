@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MainViewNavigationControllerDelgate: class {
-    func mainViewNavigationController(controller: UINavigationController)
+    func mainViewNavigationControllerDidPressMenu(controller: UINavigationController)
 }
 
 class MainViewNavigationController: UINavigationController {
@@ -22,7 +22,7 @@ class MainViewNavigationController: UINavigationController {
     }
     
     func menuButtonPressed(button: UIBarButtonItem) {
-        mainViewNavigationControllerDelegate?.mainViewNavigationController(self)
+        mainViewNavigationControllerDelegate?.mainViewNavigationControllerDidPressMenu(self)
     }
     
     private func createMenubutton(image: UIImage.AssetIdentifier) -> UIBarButtonItem? {

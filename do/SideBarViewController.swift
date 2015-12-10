@@ -84,10 +84,18 @@ class SideBarViewController: UIViewController {
         addChildViewController(viewController)
         viewController.didMoveToParentViewController(self)
     }
+    
+    func collapseMenubar() {
+        UIView.animateWithDuration(0.3, animations: {
+                self.scrollView.contentOffset.x = self.leftViewController.view.frame.width
+            }) { _ in
+                self.isMenuOpened = false
+        }
+    }
 }
 
 extension SideBarViewController: MainViewNavigationControllerDelgate {
-    func mainViewNavigationController(controller: UINavigationController) {
+    func mainViewNavigationControllerDidPressMenu(controller: UINavigationController) {
         guard let isMenuOpened = isMenuOpened else { return }
         if isMenuOpened {
             UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseInOut, animations: {

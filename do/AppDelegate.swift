@@ -48,7 +48,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func instantiateAndAddViewControllerToMainView(tableCellName: SideMenuTableCellName) {
         let toAddViewController = self.storyboard.instantiateViewControllerWithIdentifier(tableCellName.rawValue)
         if mainNavVC.topViewController != toAddViewController {
-            mainNavVC.setViewControllers([toAddViewController], animated: true)
+            UIView.animateWithDuration(0.3, animations: {
+                self.mainNavVC.topViewController!.view.alpha = 0.0
+                }, completion: { _ in
+                    self.mainNavVC.setViewControllers([toAddViewController], animated: true)
+                    self.sidebarVC.collapseMenubar()
+            })
         }
     }
 
@@ -127,7 +132,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: SideMenuTableViewControllerDelegate {
     func sideMenuTableViewController(controller: UITableViewController, didSelectTableCell tableCellName: SideMenuTableCellName) {
         instantiateAndAddViewControllerToMainView(tableCellName)
-    
     }
 }
 

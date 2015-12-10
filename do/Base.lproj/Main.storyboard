@@ -195,26 +195,52 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Jmn-pb-r8W">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="4lu-J0-El9" customClass="DateTimeStackView" customModule="do" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="600" height="195"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GPd-Ax-Fk9">
+                                        <rect key="frame" x="231" y="0.0" width="140" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9I-qj-dUM">
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="33"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="March 18, 2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWg-AU-EUH">
+                                                <rect key="frame" x="30" y="37" width="81" height="14"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.80495689655172409" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <view alpha="0.14999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsI-Gf-QFR">
+                                        <rect key="frame" x="240" y="75" width="120" height="120"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80495689660000003" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="0kH-zh-6PB"/>
+                                            <constraint firstAttribute="width" constant="120" id="WDy-04-wY3"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <connections>
+                                    <outlet property="clockView" destination="PsI-Gf-QFR" id="TOs-Xr-MjF"/>
+                                    <outlet property="dateLabel" destination="WWg-AU-EUH" id="ljt-mg-l9m"/>
+                                    <outlet property="dayLabel" destination="f9I-qj-dUM" id="bET-3l-kOC"/>
+                                </connections>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Jmn-pb-r8W" secondAttribute="trailing" id="0kk-eR-12g"/>
+                            <constraint firstItem="4lu-J0-El9" firstAttribute="leading" secondItem="IGr-fH-Gjh" secondAttribute="leading" id="2e1-2L-k0e"/>
                             <constraint firstItem="Rx6-a4-Oy8" firstAttribute="top" secondItem="Jmn-pb-r8W" secondAttribute="bottom" id="IpR-OW-ZUq"/>
                             <constraint firstItem="Jmn-pb-r8W" firstAttribute="top" secondItem="IGr-fH-Gjh" secondAttribute="top" id="NUV-5A-dgQ"/>
-                            <constraint firstItem="Rx6-a4-Oy8" firstAttribute="top" secondItem="Jmn-pb-r8W" secondAttribute="bottom" id="Tw3-sR-1tx"/>
-                            <constraint firstAttribute="trailing" secondItem="Jmn-pb-r8W" secondAttribute="trailing" id="Wt8-UD-ijM"/>
-                            <constraint firstItem="Jmn-pb-r8W" firstAttribute="top" secondItem="3nL-rU-lWL" secondAttribute="bottom" id="aGh-ae-HeV"/>
-                            <constraint firstItem="Jmn-pb-r8W" firstAttribute="leading" secondItem="IGr-fH-Gjh" secondAttribute="leading" id="hgZ-PS-u70"/>
+                            <constraint firstAttribute="trailing" secondItem="4lu-J0-El9" secondAttribute="trailing" id="aia-fG-WQ3"/>
+                            <constraint firstItem="4lu-J0-El9" firstAttribute="top" secondItem="3nL-rU-lWL" secondAttribute="bottom" constant="8" id="ffE-OC-8Iw"/>
                             <constraint firstItem="Jmn-pb-r8W" firstAttribute="leading" secondItem="IGr-fH-Gjh" secondAttribute="leading" id="sHR-kn-pO7"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Wt8-UD-ijM"/>
-                                <exclude reference="aGh-ae-HeV"/>
-                                <exclude reference="hgZ-PS-u70"/>
-                                <exclude reference="Tw3-sR-1tx"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="oXy-24-c52"/>
                 </viewController>

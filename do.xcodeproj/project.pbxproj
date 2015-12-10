@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BA33159D1C13F97100C4F464 /* UIColor+AdditionalColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33159C1C13F97100C4F464 /* UIColor+AdditionalColors.swift */; };
 		BA3A0EBA1C0A426D00487C5B /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A0EB91C0A426D00487C5B /* SideMenuTableViewCell.swift */; };
+		BA3FEDBD1C1A1B2800968FA5 /* DateTimeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FEDBC1C1A1B2800968FA5 /* DateTimeStackView.swift */; };
 		BA5EB2801BE1B97C007605DF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5EB27F1BE1B97C007605DF /* SignUpViewController.swift */; };
 		BA6917861BE14C49001356A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6917851BE14C49001356A1 /* AppDelegate.swift */; };
 		BA69178B1BE14C49001356A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA6917891BE14C49001356A1 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		BA33159C1C13F97100C4F464 /* UIColor+AdditionalColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+AdditionalColors.swift"; sourceTree = "<group>"; };
 		BA3A0EB91C0A426D00487C5B /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
+		BA3FEDBC1C1A1B2800968FA5 /* DateTimeStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeStackView.swift; sourceTree = "<group>"; };
 		BA5EB27F1BE1B97C007605DF /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BA6917821BE14C49001356A1 /* do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = do.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6917851BE14C49001356A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				BAE2522E1C0650BA00F2AF86 /* ProfileStackView.swift */,
 				BAE252301C065F3B00F2AF86 /* gradientSeparatorView.swift */,
 				BA3A0EB91C0A426D00487C5B /* SideMenuTableViewCell.swift */,
+				BA3FEDBC1C1A1B2800968FA5 /* DateTimeStackView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				BAAD7A091BFD788600512FE9 /* UImage+ImageAsset.swift in Sources */,
 				BAB17C551BE14FD90047B91F /* LoginViewController.swift in Sources */,
 				BAE2522F1C0650BA00F2AF86 /* ProfileStackView.swift in Sources */,
+				BA3FEDBD1C1A1B2800968FA5 /* DateTimeStackView.swift in Sources */,
 				BA6917861BE14C49001356A1 /* AppDelegate.swift in Sources */,
 				BAEDB1F11C060AA60065E8C0 /* SideMenuTableViewController.swift in Sources */,
 				BA5EB2801BE1B97C007605DF /* SignUpViewController.swift in Sources */,
