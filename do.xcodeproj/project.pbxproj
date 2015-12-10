@@ -164,18 +164,42 @@
 			path = doUITests;
 			sourceTree = "<group>";
 		};
-		BAB17C501BE14F880047B91F /* View Controller */ = {
+		BA6F15381C1894EC00967A8A /* Tutorial Section */ = {
 			isa = PBXGroup;
 			children = (
-				BA6F15361C18827B00967A8A /* MainViewNavigationController.swift */,
 				BAB17C541BE14FD90047B91F /* LoginViewController.swift */,
 				BA5EB27F1BE1B97C007605DF /* SignUpViewController.swift */,
 				BAF1F90D1BE287A600DD4462 /* SignupContainerTableViewController.swift */,
 				BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */,
-				BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */,
-				BAEDB1F01C060AA60065E8C0 /* SideMenuTableViewController.swift */,
+			);
+			name = "Tutorial Section";
+			sourceTree = "<group>";
+		};
+		BA6F15391C1894FF00967A8A /* Main Section */ = {
+			isa = PBXGroup;
+			children = (
+				BA6F15361C18827B00967A8A /* MainViewNavigationController.swift */,
 				BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */,
 				BAB531901C179EFC00458245 /* CalendarViewController.swift */,
+			);
+			name = "Main Section";
+			sourceTree = "<group>";
+		};
+		BA6F153A1C18950C00967A8A /* Side bar Section */ = {
+			isa = PBXGroup;
+			children = (
+				BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */,
+				BAEDB1F01C060AA60065E8C0 /* SideMenuTableViewController.swift */,
+			);
+			name = "Side bar Section";
+			sourceTree = "<group>";
+		};
+		BAB17C501BE14F880047B91F /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BA6F153A1C18950C00967A8A /* Side bar Section */,
+				BA6F15391C1894FF00967A8A /* Main Section */,
+				BA6F15381C1894EC00967A8A /* Tutorial Section */,
 				BAB17C531BE14FAD0047B91F /* Support */,
 			);
 			name = "View Controller";
