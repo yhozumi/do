@@ -13,8 +13,10 @@ class DateTimeStackView: UIStackView {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var clockView: UIView!
+    @IBOutlet weak var hourLabel: UILabel!
     
     private var timer: NSTimer?
+    private var timeTuple: (String, String)?
     
     private lazy var date: NSDate = {
         let today = NSDate()
@@ -33,17 +35,14 @@ class DateTimeStackView: UIStackView {
         return formatter
     }()
     
-    private lazy var timeFormatter: NSDateFormatter = {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "HH : MM"
-        return formatter
-    }()
-    
     func timerCalled() {
         date = NSDate()
-        let timeTuple = createHoursAndMinutesFromDate(date)
-        print("\(timeTuple.0):\(timeTuple.1)")
-        //print(dateFormatter.stringFromDate(date))
+        timeTuple = createHoursAndMinutesFromDate(date)
+        updateTimeLabels(timeTuple!)
+    }
+    
+    private func updateTimeLabels(time: (String, String)) {
+        hourLabel.text = time.0
     }
     
     private func updateLabels() {
@@ -54,7 +53,7 @@ class DateTimeStackView: UIStackView {
     private func createHoursAndMinutesFromDate(date: NSDate) -> (String, String) {
         let calendar = NSCalendar.currentCalendar()
         let time = calendar.components([.Hour, .Minute], fromDate: date)
-        let hour = "\(time.hour)"
+        let hour = time.hour > 12 ? "\(time.hour - 12)" : "\(time.hour)"
         let minutes = "\(time.minute)"
         return (hour, minutes)
     }
@@ -62,6 +61,10 @@ class DateTimeStackView: UIStackView {
     override func awakeFromNib() {
         super.awakeFromNib()
         updateLabels()
+        timeTuple = createHoursAndMinutesFromDate(date)
+        if let timeTuple = timeTuple {
+            updateTimeLabels(timeTuple)
+        }
         
         clockView.layer.cornerRadius = clockView.frame.width / 2
         
