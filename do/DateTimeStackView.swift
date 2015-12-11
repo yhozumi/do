@@ -15,8 +15,6 @@ class DateTimeStackView: UIStackView {
     @IBOutlet weak var clockView: UIView!
     
     private var timer: NSTimer?
-    private var hours: String?
-    private var minutes: String?
     
     private lazy var date: NSDate = {
         let today = NSDate()
