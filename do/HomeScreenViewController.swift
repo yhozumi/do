@@ -9,6 +9,8 @@
 import UIKit
 
 class HomeScreenViewController: UIViewController {
-    
+    deinit {
+        print("Home screen deinitialized")
+    }
 }
 
