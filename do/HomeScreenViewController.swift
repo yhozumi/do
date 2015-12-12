@@ -17,7 +17,7 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.bounces = false
         tableView.backgroundColor = UIColor.clearColor()
     }
     
@@ -44,23 +44,22 @@ extension HomeScreenViewController: UITableViewDataSource, UITableViewDelegate {
         cell.backgroundColor = UIColor.clearColor()
         return cell
     }
-    
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        UIView.animateWithDuration(0.2, animations: {
-            self.addButton.alpha = 0.0
-            self.addButton.center.y += self.addButton.frame.height
-            }) { _ in
-                self.addButton.center = self.originalButtonPosition!
-        }
-    }
-    
+
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        print(scrollView.contentOffset.y)
         if scrollView.contentOffset.y == 0.0 {
             self.addButton.center.y += self.addButton.frame.height
             UIView.animateWithDuration(0.2, animations: {
                 self.addButton.alpha = 1.0
                 self.addButton.center.y -= self.addButton.frame.height
                 }, completion: { _ in
+                    self.addButton.center = self.originalButtonPosition!
+            })
+        } else if scrollView.contentOffset.y > 20.0 {
+            UIView.animateWithDuration(0.2, animations: {
+                self.addButton.alpha = 0.0
+                self.addButton.center.y += self.addButton.frame.height
+                }, completion: {_ in
                     self.addButton.center = self.originalButtonPosition!
             })
         }
