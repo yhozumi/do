@@ -13,16 +13,21 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     
-    private var originalTableViewContentOffsetY: CGFloat?
+    private var originalButtonPosition: CGPoint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.backgroundColor = UIColor.clearColor()
-        originalTableViewContentOffsetY = tableView.contentOffset.y
-        print(originalTableViewContentOffsetY)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        originalButtonPosition = addButton.center
     }
     
     @IBAction func addButtonPressed(sender: AnyObject) {
+        print("Button pressed")
     }
 }
 
@@ -43,16 +48,22 @@ extension HomeScreenViewController: UITableViewDataSource, UITableViewDelegate {
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         UIView.animateWithDuration(0.2, animations: {
             self.addButton.alpha = 0.0
-            
             self.addButton.center.y += self.addButton.frame.height
-        })
+            }) { _ in
+                self.addButton.center = self.originalButtonPosition!
+        }
     }
     
-    func scrollViewDidScrollToTop(scrollView: UIScrollView) {
-        UIView.animateWithDuration(0.2, animations: {
-            self.addButton.alpha = 1.0
-            self.addButton.center.y -= self.addButton.frame.height
-        })
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView.contentOffset.y == 0.0 {
+            self.addButton.center.y += self.addButton.frame.height
+            UIView.animateWithDuration(0.2, animations: {
+                self.addButton.alpha = 1.0
+                self.addButton.center.y -= self.addButton.frame.height
+                }, completion: { _ in
+                    self.addButton.center = self.originalButtonPosition!
+            })
+        }
     }
 }
 
