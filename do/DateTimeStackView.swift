@@ -61,7 +61,7 @@ class DateTimeStackView: UIStackView {
     override func awakeFromNib() {
         super.awakeFromNib()
         updateLabels()
-        timeTuple = createHoursAndMinutesFromDate(date)
+        timeTuple = createHoursAndMinutesFromDate(date)  
         if let timeTuple = timeTuple {
             updateTimeLabels(timeTuple)
         }
