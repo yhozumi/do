@@ -10,6 +10,7 @@ import UIKit
 
 extension UIImage {
     enum AssetIdentifier: String {
+        case AddButton = "addButton"
         case Connect = "connect"
         case Back = "back"
         case Background = "background"
