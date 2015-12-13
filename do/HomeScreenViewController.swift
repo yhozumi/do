@@ -10,6 +10,11 @@ import UIKit
 
 class HomeScreenViewController: UIViewController {
     
+    enum ButtonSlideDirection {
+        case Up
+        case Down
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     
@@ -19,6 +24,7 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
         tableView.bounces = false
         tableView.backgroundColor = UIColor.clearColor()
+        tableView.separatorStyle = .None
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,24 +50,34 @@ extension HomeScreenViewController: UITableViewDataSource, UITableViewDelegate {
         cell.backgroundColor = UIColor.clearColor()
         return cell
     }
-
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
-        if scrollView.contentOffset.y == 0.0 {
-            self.addButton.center.y += self.addButton.frame.height
+    
+    private func slideButtonAndOpaque(slideDirection: ButtonSlideDirection, button: UIButton, scrollView: UIScrollView, buttonHeight: CGFloat) {
+        switch slideDirection {
+        case .Down:
             UIView.animateWithDuration(0.2, animations: {
-                self.addButton.alpha = 1.0
-                self.addButton.center.y -= self.addButton.frame.height
+                self.addButton.alpha = 0.0
+                self.addButton.center.y += buttonHeight
                 }, completion: { _ in
                     self.addButton.center = self.originalButtonPosition!
             })
-        } else if scrollView.contentOffset.y > 20.0 {
+        case .Up:
+            dispatch_async(dispatch_get_main_queue()) {
+                self.addButton.center.y += buttonHeight
+            }
             UIView.animateWithDuration(0.2, animations: {
-                self.addButton.alpha = 0.0
-                self.addButton.center.y += self.addButton.frame.height
-                }, completion: {_ in
+                self.addButton.center.y -= buttonHeight
+                self.addButton.alpha = 1.0
+                }, completion: { _ in
                     self.addButton.center = self.originalButtonPosition!
             })
+        }
+    }
+
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView.contentOffset.y == 0.0 {
+            slideButtonAndOpaque(.Up, button: addButton, scrollView: scrollView, buttonHeight: addButton.frame.height)
+        } else if scrollView.contentOffset.y > 20.0 {
+            slideButtonAndOpaque(.Down, button: addButton, scrollView: scrollView, buttonHeight: addButton.frame.height)
         }
     }
 }
