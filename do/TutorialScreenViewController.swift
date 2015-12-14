@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class TutorialScreenViewController: UIViewController {
 
     enum SlideDirection {
@@ -56,7 +55,9 @@ class TutorialScreenViewController: UIViewController {
             self.view.subviews.last?.alpha = 1.0
             self.view.subviews.last!.frame.origin.y += 30
             }, completion: { _ in
-               
+                if self.view.subviews.count == 0 {
+                    
+                }
         })
     }
     

@@ -14,12 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var sidebarVC: SideBarViewController!
+    
+    private var isUserLoggedIn: Bool = false
+    
     let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     var mainNavVC = UINavigationController()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         configureNavigationBar()
-        setUpSideBarViewController()
+        if isUserLoggedIn {
+            setUpSideBarViewController()
+        }
+        
         return true
     }
     
