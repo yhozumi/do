@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logoTopLayout: NSLayoutConstraint!
+    
+    var coreDataStack: CoreDataStack?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +78,17 @@ class LoginViewController: UIViewController {
     
     @IBAction func signInTapped(sender: UIButton) {
         if isUserEntryValid() {
-            //move to home screen view controller
+            let fetchRequest = NSFetchRequest(entityName: "User")
+            do {
+                if let users = try coreDataStack?.managedObjectContext.executeFetchRequest(fetchRequest) as? [User] {
+                    let user = users.filter{ $0.name == nameTextField.text }.first
+                    if user == nil {
+                        print("no one named this person")
+                    }
+                }
+            } catch {
+                print("error fetching users in loginviewController \(error)")
+            }
         } else {
             //clear user input and display a message
         }

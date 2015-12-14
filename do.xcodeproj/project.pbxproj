@@ -25,6 +25,7 @@
 		BAC82C401BF2E4F60069B13A /* TutorialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */; };
 		BAC82C421BF2E5E00069B13A /* TutorialStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */; };
 		BAC9FD471C0CBBA100C6E11E /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */; };
+		BAD8331B1C1F3C86002A13CF /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD8331A1C1F3C86002A13CF /* CoreDataStack.swift */; };
 		BAE2522F1C0650BA00F2AF86 /* ProfileStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE2522E1C0650BA00F2AF86 /* ProfileStackView.swift */; };
 		BAEDB1ED1C05E21A0065E8C0 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */; };
 		BAEDB1F11C060AA60065E8C0 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEDB1F01C060AA60065E8C0 /* SideMenuTableViewController.swift */; };
@@ -78,6 +79,7 @@
 		BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialScreenViewController.swift; sourceTree = "<group>"; };
 		BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialStepView.swift; sourceTree = "<group>"; };
 		BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		BAD8331A1C1F3C86002A13CF /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		BAE2522E1C0650BA00F2AF86 /* ProfileStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileStackView.swift; sourceTree = "<group>"; };
 		BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		BAEDB1F01C060AA60065E8C0 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				BAF1F9061BE2616C00DD4462 /* Task.swift */,
 				BAF1F90F1BE70BB100DD4462 /* User+CoreDataProperties.swift */,
 				BAF1F9101BE70BB100DD4462 /* User.swift */,
+				BAD8331A1C1F3C86002A13CF /* CoreDataStack.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF1F8FC1BE2578F00DD4462 /* ProfileAvatarImage.swift in Sources */,
+				BAD8331B1C1F3C86002A13CF /* CoreDataStack.swift in Sources */,
 				BAAD7A091BFD788600512FE9 /* UImage+ImageAsset.swift in Sources */,
 				BAB17C551BE14FD90047B91F /* LoginViewController.swift in Sources */,
 				BAE2522F1C0650BA00F2AF86 /* ProfileStackView.swift in Sources */,
