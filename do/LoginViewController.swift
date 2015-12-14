@@ -10,13 +10,21 @@ import UIKit
 import CoreData
 
 class LoginViewController: UIViewController {
+    
+    private enum LoginErrors: ErrorType {
+        case PasswordTooShort
+        case InvalidEntry
+        case PasswordNotMatching
+        case UserInvalid
+    }
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logoTopLayout: NSLayoutConstraint!
     
     var coreDataStack: CoreDataStack?
-
+    var string: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTextFieldsWithAttributes([NSForegroundColorAttributeName: UIColor.whiteLightGreyColor()])
@@ -62,6 +70,7 @@ class LoginViewController: UIViewController {
             if let signupVC = segue.destinationViewController as? SignUpViewController {
                 signupVC.title = "Sign up"
                 signupVC.navigationItem.leftBarButtonItem = createCustomBackButton()
+                signupVC.coreDataStack = self.coreDataStack
             }
         }
     }
@@ -71,26 +80,48 @@ class LoginViewController: UIViewController {
         super.touchesBegan(touches, withEvent: event)
     }
     
-    private func isUserEntryValid() -> Bool{
-        //To do. Check if the user entry is valid.
-        return true
+    private func checkLoginEntry(users: [User]) throws {
+        if nameTextField.text!.isEmpty && passwordTextField.text!.isEmpty {
+            throw LoginErrors.InvalidEntry
+        } else if passwordTextField.text?.characters.count < 8 {
+            throw LoginErrors.PasswordTooShort
+        } else if checkValidUser(users) {
+            throw LoginErrors.UserInvalid
+        } else if checkUserPassword(users) {
+            throw LoginErrors.PasswordTooShort
+        }
+    }
+    
+    private func checkUserPassword(users: [User]) -> Bool {
+        let user = users.filter{ $0.name == nameTextField.text }.first
+        guard let existingUser = user else { return true }
+        guard existingUser.password == passwordTextField.text else { return true }
+        return false
+    }
+    
+    private func checkValidUser(users: [User]) -> Bool {
+        let user = users.filter{ $0.name == nameTextField.text }.first
+        guard let _ = user else { return true }
+        return false
     }
     
     @IBAction func signInTapped(sender: UIButton) {
-        if isUserEntryValid() {
-            let fetchRequest = NSFetchRequest(entityName: "User")
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        do {
+            let users = try coreDataStack?.managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
             do {
-                if let users = try coreDataStack?.managedObjectContext.executeFetchRequest(fetchRequest) as? [User] {
-                    let user = users.filter{ $0.name == nameTextField.text }.first
-                    if user == nil {
-                        print("no one named this person")
-                    }
-                }
-            } catch {
-                print("error fetching users in loginviewController \(error)")
+                try checkLoginEntry(users)
+            } catch LoginErrors.InvalidEntry {
+                print("invalid entry")
+            } catch LoginErrors.UserInvalid {
+                print("User doesn't exist")
+            } catch LoginErrors.PasswordTooShort {
+                print("Password too short")
+            } catch LoginErrors.PasswordNotMatching {
+                print("Incorrect password")
             }
-        } else {
-            //clear user input and display a message
+        } catch {
+            print("Fetch request error")
         }
     }
 }

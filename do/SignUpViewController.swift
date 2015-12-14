@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class SignUpViewController: UIViewController {
     
     @IBOutlet weak var profileView: ProfileAvatarImage!
+
+    var coreDataStack: CoreDataStack?
     
     override func viewDidLoad() {
         super.viewDidLoad()
