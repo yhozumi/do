@@ -10,13 +10,6 @@ import UIKit
 import CoreData
 
 class LoginViewController: UIViewController {
-    
-    private enum LoginErrors: ErrorType {
-        case PasswordTooShort
-        case InvalidEntry
-        case PasswordNotMatching
-        case UserInvalid
-    }
 
     @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
@@ -83,13 +76,13 @@ class LoginViewController: UIViewController {
     
     private func checkLoginEntry(users: [User]) throws {
         if nameTextField.text!.isEmpty && passwordTextField.text!.isEmpty {
-            throw LoginErrors.InvalidEntry
+            throw UserEntryError.InvalidEntry
         } else if passwordTextField.text?.characters.count < 8 {
-            throw LoginErrors.PasswordTooShort
+            throw UserEntryError.PasswordTooShort
         } else if checkValidUser(users) {
-            throw LoginErrors.UserInvalid
+            throw UserEntryError.UserInvalid
         } else if checkUserPassword(users) {
-            throw LoginErrors.PasswordTooShort
+            throw UserEntryError.PasswordTooShort
         }
     }
     
@@ -124,14 +117,15 @@ class LoginViewController: UIViewController {
             do {
                 try checkLoginEntry(users)
                 print("sign in successful!")
-            } catch LoginErrors.InvalidEntry {
+            } catch UserEntryError.InvalidEntry {
                 displayErrorMessageToUser("Fields are empty")
-            } catch LoginErrors.PasswordTooShort {
+            } catch UserEntryError.PasswordTooShort {
                 displayErrorMessageToUser("Password is too short")
-            } catch LoginErrors.UserInvalid {
+            } catch UserEntryError.UserInvalid {
                 displayErrorMessageToUser("User name does not exist")
-            } catch LoginErrors.PasswordNotMatching {
+            } catch UserEntryError.PasswordNotMatching {
                 displayErrorMessageToUser("Password is incorrect")
+                passwordTextField.text = ""
             }
         } catch {
             print("Fetch request error")

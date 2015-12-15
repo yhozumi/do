@@ -22,6 +22,7 @@
 		BAAD7A091BFD788600512FE9 /* UImage+ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAD7A081BFD788600512FE9 /* UImage+ImageAsset.swift */; };
 		BAB17C551BE14FD90047B91F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB17C541BE14FD90047B91F /* LoginViewController.swift */; };
 		BAB531911C179EFC00458245 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB531901C179EFC00458245 /* CalendarViewController.swift */; };
+		BABD04D11C1FA63000437BA0 /* UserEntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD04D01C1FA63000437BA0 /* UserEntryError.swift */; };
 		BAC82C401BF2E4F60069B13A /* TutorialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */; };
 		BAC82C421BF2E5E00069B13A /* TutorialStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */; };
 		BAC9FD471C0CBBA100C6E11E /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */; };
@@ -76,6 +77,7 @@
 		BAAD7A081BFD788600512FE9 /* UImage+ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UImage+ImageAsset.swift"; sourceTree = "<group>"; };
 		BAB17C541BE14FD90047B91F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BAB531901C179EFC00458245 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		BABD04D01C1FA63000437BA0 /* UserEntryError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntryError.swift; sourceTree = "<group>"; };
 		BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialScreenViewController.swift; sourceTree = "<group>"; };
 		BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialStepView.swift; sourceTree = "<group>"; };
 		BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				BA6917911BE14C49001356A1 /* LaunchScreen.storyboard */,
 				BAAD7A081BFD788600512FE9 /* UImage+ImageAsset.swift */,
 				BA33159C1C13F97100C4F464 /* UIColor+AdditionalColors.swift */,
+				BABD04D01C1FA63000437BA0 /* UserEntryError.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			files = (
 				BAF1F8FC1BE2578F00DD4462 /* ProfileAvatarImage.swift in Sources */,
 				BAD8331B1C1F3C86002A13CF /* CoreDataStack.swift in Sources */,
+				BABD04D11C1FA63000437BA0 /* UserEntryError.swift in Sources */,
 				BAAD7A091BFD788600512FE9 /* UImage+ImageAsset.swift in Sources */,
 				BAB17C551BE14FD90047B91F /* LoginViewController.swift in Sources */,
 				BAE2522F1C0650BA00F2AF86 /* ProfileStackView.swift in Sources */,
