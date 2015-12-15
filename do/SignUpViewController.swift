@@ -12,12 +12,12 @@ import CoreData
 class SignUpViewController: UIViewController {
     
     @IBOutlet weak var profileView: ProfileAvatarImage!
-
+    
     var coreDataStack: CoreDataStack?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         profileView.delegate = self
     }
     
@@ -40,10 +40,8 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func continueButtonPressed(sender: AnyObject) {
-        if isUserEntryValid() {
-            // move view controller to tutorial screen
-        } else {
-            // clear user entry
+        if let signUpContainerTableVC = self.childViewControllers.first as? SignupContainerTableViewController {
+            signUpContainerTableVC.parentViewControllerPressedContinue()
         }
     }
     
@@ -87,5 +85,11 @@ extension SignUpViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         profileView.profileImage = image
         dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+extension SignUpViewController: SignupContainerTableViewControllerDataSource {
+    func signUpTableViewSendData(controller: UITableViewController) {
+        
     }
 }

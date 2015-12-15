@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol SignupContainerTableViewControllerDataSource: class {
+    func signUpTableViewSendData(controller: UITableViewController)
+}
+
 class SignupContainerTableViewController: UITableViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
+    
+    
+    weak var signUpDataSource: SignupContainerTableViewControllerDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +28,6 @@ class SignupContainerTableViewController: UITableViewController {
         tableView.scrollEnabled = false
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         configureTextFieldWithAttributes([NSForegroundColorAttributeName: UIColor.whiteLightGreyColor()])
-        
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
@@ -39,6 +45,10 @@ class SignupContainerTableViewController: UITableViewController {
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Enter Password", attributes: attributes)
         phoneNumberTextField.attributedPlaceholder = NSAttributedString(string: "Enter Phone Number", attributes: attributes)
         passwordTextField.secureTextEntry = true
+    }
+    
+    func parentViewControllerPressedContinue() {
+        signUpDataSource?.signUpTableViewSendData(self)
     }
 }
 
