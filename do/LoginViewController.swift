@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
         case UserInvalid
     }
 
+    @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logoTopLayout: NSLayoutConstraint!
@@ -105,20 +106,32 @@ class LoginViewController: UIViewController {
         return false
     }
     
+    private func displayErrorMessageToUser(message: String) {
+        errorMessageLabel.text = message
+        UIView.animateWithDuration(0.5, animations: {
+            self.errorMessageLabel.alpha = 1.0
+            }, completion: {_ in
+                UIView.animateWithDuration(0.5, delay: 5, options: [], animations: {
+                    self.errorMessageLabel.alpha = 0.0
+                    }, completion: nil)
+        })
+    }
+    
     @IBAction func signInTapped(sender: UIButton) {
         let fetchRequest = NSFetchRequest(entityName: "User")
         do {
             let users = try coreDataStack?.managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
             do {
                 try checkLoginEntry(users)
+                print("sign in successful!")
             } catch LoginErrors.InvalidEntry {
-                print("invalid entry")
-            } catch LoginErrors.UserInvalid {
-                print("User doesn't exist")
+                displayErrorMessageToUser("Fields are empty")
             } catch LoginErrors.PasswordTooShort {
-                print("Password too short")
+                displayErrorMessageToUser("Password is too short")
+            } catch LoginErrors.UserInvalid {
+                displayErrorMessageToUser("User name does not exist")
             } catch LoginErrors.PasswordNotMatching {
-                print("Incorrect password")
+                displayErrorMessageToUser("Password is incorrect")
             }
         } catch {
             print("Fetch request error")
