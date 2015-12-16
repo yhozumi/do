@@ -872,6 +872,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Guc-7Z-eId"/>
                     <connections>
+                        <outlet property="containerTableView" destination="Hdy-Fm-DV4" id="eZY-0X-O7y"/>
                         <outlet property="profileView" destination="CDy-9D-1Xz" id="WT6-68-RrW"/>
                     </connections>
                 </viewController>
