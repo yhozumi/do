@@ -47,8 +47,16 @@ class SignupContainerTableViewController: UITableViewController {
         passwordTextField.secureTextEntry = true
     }
     
+    private func validateUserEntryData() throws{
+        if nameTextField.text!.isEmpty || emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty || phoneNumberTextField.text!.isEmpty {
+            throw UserEntryError.InvalidEntry
+        } else if !emailTextField.text!.isEmail() {
+            throw UserEntryError.InvalidEmail
+        } 
+    }
+    
     func parentViewControllerPressedContinue() {
-        signUpDataSource?.signUpTableViewSendData(self)
+        
     }
 }
 

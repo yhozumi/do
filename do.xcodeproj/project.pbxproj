@@ -23,6 +23,7 @@
 		BAB17C551BE14FD90047B91F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB17C541BE14FD90047B91F /* LoginViewController.swift */; };
 		BAB531911C179EFC00458245 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB531901C179EFC00458245 /* CalendarViewController.swift */; };
 		BABD04D11C1FA63000437BA0 /* UserEntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD04D01C1FA63000437BA0 /* UserEntryError.swift */; };
+		BABD04D31C21ADA900437BA0 /* String+EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD04D21C21ADA900437BA0 /* String+EmailValidation.swift */; };
 		BAC82C401BF2E4F60069B13A /* TutorialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */; };
 		BAC82C421BF2E5E00069B13A /* TutorialStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */; };
 		BAC9FD471C0CBBA100C6E11E /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */; };
@@ -78,6 +79,7 @@
 		BAB17C541BE14FD90047B91F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BAB531901C179EFC00458245 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		BABD04D01C1FA63000437BA0 /* UserEntryError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntryError.swift; sourceTree = "<group>"; };
+		BABD04D21C21ADA900437BA0 /* String+EmailValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+EmailValidation.swift"; sourceTree = "<group>"; };
 		BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialScreenViewController.swift; sourceTree = "<group>"; };
 		BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialStepView.swift; sourceTree = "<group>"; };
 		BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				BAAD7A081BFD788600512FE9 /* UImage+ImageAsset.swift */,
 				BA33159C1C13F97100C4F464 /* UIColor+AdditionalColors.swift */,
 				BABD04D01C1FA63000437BA0 /* UserEntryError.swift */,
+				BABD04D21C21ADA900437BA0 /* String+EmailValidation.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				BA3A0EBA1C0A426D00487C5B /* SideMenuTableViewCell.swift in Sources */,
 				BA69178E1BE14C49001356A1 /* do.xcdatamodeld in Sources */,
 				BAF1F90E1BE287A600DD4462 /* SignupContainerTableViewController.swift in Sources */,
+				BABD04D31C21ADA900437BA0 /* String+EmailValidation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

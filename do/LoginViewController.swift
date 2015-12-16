@@ -99,8 +99,8 @@ class LoginViewController: UIViewController {
         return false
     }
     
-    private func displayErrorMessageToUser(message: String) {
-        errorMessageLabel.text = message
+    private func displayErrorMessageToUser(message: UserEntryError) {
+        errorMessageLabel.text = message.description
         UIView.animateWithDuration(0.5, animations: {
             self.errorMessageLabel.alpha = 1.0
             }, completion: {_ in
@@ -118,13 +118,13 @@ class LoginViewController: UIViewController {
                 try checkLoginEntry(users)
                 print("sign in successful!")
             } catch UserEntryError.InvalidEntry {
-                displayErrorMessageToUser("Fields are empty")
+                displayErrorMessageToUser(.InvalidEntry)
             } catch UserEntryError.PasswordTooShort {
-                displayErrorMessageToUser("Password is too short")
+                displayErrorMessageToUser(.PasswordTooShort)
             } catch UserEntryError.UserInvalid {
-                displayErrorMessageToUser("User name does not exist")
+                displayErrorMessageToUser(.UserInvalid)
             } catch UserEntryError.PasswordNotMatching {
-                displayErrorMessageToUser("Password is incorrect")
+                displayErrorMessageToUser(.PasswordNotMatching)
                 passwordTextField.text = ""
             }
         } catch {
