@@ -15,6 +15,7 @@ class DateTimeStackView: UIStackView {
     @IBOutlet weak var clockView: UIView!
     @IBOutlet weak var hourLabel: UILabel!
     
+    private var minutesView: UIView!
     private var timer: NSTimer?
     private var timeTuple: (String, String)?
     
@@ -34,6 +35,18 @@ class DateTimeStackView: UIStackView {
         formatter.dateFormat = "EEEE"
         return formatter
     }()
+    
+    private func setUpMinutesView() {
+        self.minutesView = UIView(frame: CGRect(x: 0, y: 0, width: clockView.bounds.width / 3, height: clockView.bounds.height / 3))
+        self.minutesView.backgroundColor = UIColor.whiteColor()
+        self.minutesView.layer.cornerRadius = self.minutesView.bounds.width / 2
+        
+        let path = UIBezierPath(arcCenter: self.clockView.center, radius: clockView.bounds.width / 2, startAngle: CGFloat(M_PI), endAngle: CGFloat(M_PI), clockwise: true)
+        path.fill()
+        self.minutesView.center = path.currentPoint
+        self.addSubview(minutesView)
+        
+    }
     
     func timerCalled() {
         date = NSDate()
@@ -69,7 +82,12 @@ class DateTimeStackView: UIStackView {
         clockView.layer.cornerRadius = clockView.frame.width / 2
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("timerCalled"), userInfo: nil, repeats: true)
+        
+    }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setUpMinutesView()
     }
     
     override func removeFromSuperview() {

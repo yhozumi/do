@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var sidebarVC: SideBarViewController!
     
-    private var isUserLoggedIn: Bool = false
+    private var isUserLoggedIn: Bool = true
     private lazy var coreDataStack = CoreDataStack()
     
     let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
