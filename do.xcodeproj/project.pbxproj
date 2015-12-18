@@ -24,6 +24,7 @@
 		BAB531911C179EFC00458245 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB531901C179EFC00458245 /* CalendarViewController.swift */; };
 		BABD04D11C1FA63000437BA0 /* UserEntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD04D01C1FA63000437BA0 /* UserEntryError.swift */; };
 		BABD04D31C21ADA900437BA0 /* String+EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD04D21C21ADA900437BA0 /* String+EmailValidation.swift */; };
+		BABD04D71C24532A00437BA0 /* MinutesHandIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD04D61C24532A00437BA0 /* MinutesHandIdentifier.swift */; };
 		BAC82C401BF2E4F60069B13A /* TutorialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */; };
 		BAC82C421BF2E5E00069B13A /* TutorialStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */; };
 		BAC9FD471C0CBBA100C6E11E /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */; };
@@ -80,6 +81,7 @@
 		BAB531901C179EFC00458245 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		BABD04D01C1FA63000437BA0 /* UserEntryError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntryError.swift; sourceTree = "<group>"; };
 		BABD04D21C21ADA900437BA0 /* String+EmailValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+EmailValidation.swift"; sourceTree = "<group>"; };
+		BABD04D61C24532A00437BA0 /* MinutesHandIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinutesHandIdentifier.swift; sourceTree = "<group>"; };
 		BAC82C3F1BF2E4F60069B13A /* TutorialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialScreenViewController.swift; sourceTree = "<group>"; };
 		BAC82C411BF2E5E00069B13A /* TutorialStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialStepView.swift; sourceTree = "<group>"; };
 		BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				BAF1F90F1BE70BB100DD4462 /* User+CoreDataProperties.swift */,
 				BAF1F9101BE70BB100DD4462 /* User.swift */,
 				BAD8331A1C1F3C86002A13CF /* CoreDataStack.swift */,
+				BABD04D61C24532A00437BA0 /* MinutesHandIdentifier.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				BA69178E1BE14C49001356A1 /* do.xcdatamodeld in Sources */,
 				BAF1F90E1BE287A600DD4462 /* SignupContainerTableViewController.swift in Sources */,
 				BABD04D31C21ADA900437BA0 /* String+EmailValidation.swift in Sources */,
+				BABD04D71C24532A00437BA0 /* MinutesHandIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
