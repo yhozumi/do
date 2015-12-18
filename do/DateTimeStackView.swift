@@ -16,6 +16,7 @@ class DateTimeStackView: UIStackView {
     @IBOutlet weak var hourLabel: UILabel!
     
     private var minutesView: UIView!
+    private var minutesLabel: UILabel!
     private var timer: NSTimer?
     private var timeTuple: (String, String)?
     
@@ -41,11 +42,17 @@ class DateTimeStackView: UIStackView {
         self.minutesView.backgroundColor = UIColor.whiteColor()
         self.minutesView.layer.cornerRadius = self.minutesView.bounds.width / 2
         
-        let path = UIBezierPath(arcCenter: self.clockView.center, radius: clockView.bounds.width / 2, startAngle: CGFloat(M_PI), endAngle: CGFloat(M_PI), clockwise: true)
+        let path = UIBezierPath(arcCenter: self.clockView.center, radius: clockView.bounds.width / 2, startAngle: CGFloat(M_PI / 2), endAngle: CGFloat(M_PI / 2), clockwise: true)
         path.fill()
         self.minutesView.center = path.currentPoint
         self.addSubview(minutesView)
         
+        minutesLabel = UILabel(frame: CGRect.zero)
+        minutesLabel.textColor = UIColor.whiteLightGreyColor()
+        minutesLabel.text = timeTuple!.1
+        minutesLabel.sizeToFit()
+        minutesLabel.center = minutesView.center
+        self.addSubview(minutesLabel)
     }
     
     func timerCalled() {
