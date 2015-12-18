@@ -42,11 +42,21 @@ class DateTimeStackView: UIStackView {
         self.minutesView.backgroundColor = UIColor.whiteColor()
         self.minutesView.layer.cornerRadius = self.minutesView.bounds.width / 2
         
-        let path = UIBezierPath(arcCenter: self.clockView.center, radius: clockView.bounds.width / 2, startAngle: CGFloat(0), endAngle: CGFloat(3 * M_PI / 2), clockwise: true)
+        let endAngle = MinutesHandIdentifier.configureRadiansWithMinutes(Int(timeTuple!.1)!)
+        
+        let path = UIBezierPath(arcCenter: self.clockView.center, radius: clockView.bounds.width / 2, startAngle: CGFloat(0), endAngle: endAngle, clockwise: true)
         
         self.minutesView.center = path.currentPoint
         self.addSubview(minutesView)
+        
+        minutesLabel = UILabel(frame: CGRect.zero)
+        minutesLabel.textColor = UIColor.whiteLightGreyColor()
+        minutesLabel.text = timeTuple!.1
+        minutesLabel.sizeToFit()
+        minutesLabel.center = minutesView.center
+        self.addSubview(minutesLabel)
     }
+    
     
     func timerCalled() {
         date = NSDate()
