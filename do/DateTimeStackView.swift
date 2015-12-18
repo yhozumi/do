@@ -16,6 +16,7 @@ class DateTimeStackView: UIStackView {
     @IBOutlet weak var hourLabel: UILabel!
     
     private var minutesView: UIView!
+    private var minutesLabel: UILabel!
     private var timer: NSTimer?
     private var timeTuple: (String, String)?
     
