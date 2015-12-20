@@ -81,6 +81,7 @@ class DateTimeStackView: UIStackView {
             let path = UIBezierPath(arcCenter: self.clockView.center, radius: self.clockView.bounds.width / 2, startAngle: CGFloat(0), endAngle: endAngle, clockwise: true)
             UIView.animateWithDuration(0.5, animations: {
                 self.minutesView.center = path.currentPoint
+                self.minutesLabel.center = self.minutesView.center
                 }, completion: nil)
         }
     }
@@ -111,9 +112,13 @@ class DateTimeStackView: UIStackView {
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("timerCalled"), userInfo: nil, repeats: true)
     }
     
+    //layoutSubview's is called multiple times when the view is loaded. Therefore if statement checks if the minutesView has been instantiated yet so that it doesn't duplicate the view. 
     override func layoutSubviews() {
         super.layoutSubviews()
-        setUpMinutesView()
+        if minutesView == nil {
+            setUpMinutesView()
+            print("set up minutesView Called")
+        }
     }
     
     override func removeFromSuperview() {
