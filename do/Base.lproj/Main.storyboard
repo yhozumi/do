@@ -261,15 +261,15 @@
                                         </connections>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i0X-or-L1j">
-                                        <rect key="frame" x="8" y="208" width="584" height="328"/>
+                                        <rect key="frame" x="14" y="208" width="572" height="328"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeCell" id="MD7-G6-V28">
-                                                <rect key="frame" x="0.0" y="28" width="584" height="74"/>
+                                                <rect key="frame" x="0.0" y="28" width="572" height="74"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MD7-G6-V28" id="q5N-h0-w7n">
-                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="73.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="572" height="73.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
@@ -281,8 +281,8 @@
                                     </tableView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="i0X-or-L1j" firstAttribute="leading" secondItem="0T3-b9-pIJ" secondAttribute="leading" constant="8" id="gwi-Fb-q0g"/>
-                                    <constraint firstAttribute="trailing" secondItem="i0X-or-L1j" secondAttribute="trailing" constant="8" id="mSd-eZ-fwh"/>
+                                    <constraint firstItem="i0X-or-L1j" firstAttribute="leading" secondItem="0T3-b9-pIJ" secondAttribute="leading" constant="14" id="gwi-Fb-q0g"/>
+                                    <constraint firstAttribute="trailing" secondItem="i0X-or-L1j" secondAttribute="trailing" constant="14" id="mSd-eZ-fwh"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofk-DN-GT7">
@@ -311,10 +311,15 @@
                             <constraint firstAttribute="trailing" secondItem="0T3-b9-pIJ" secondAttribute="trailing" id="zip-eI-wc2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="oXy-24-c52"/>
+                    <navigationItem key="navigationItem" id="oXy-24-c52">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Gzk-6i-xJJ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="ofk-DN-GT7" id="QnT-Cx-nUL"/>
                         <outlet property="tableView" destination="i0X-or-L1j" id="2se-JP-9uc"/>
+                        <outlet property="weatherButton" destination="Gzk-6i-xJJ" id="Pvi-g2-5kL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ko-X7-Nat" userLabel="First Responder" sceneMemberID="firstResponder"/>

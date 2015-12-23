@@ -15,16 +15,48 @@ class HomeScreenViewController: UIViewController {
         case Down
     }
     
+    @IBOutlet weak var weatherButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     
     private var originalButtonPosition: CGPoint?
+    
+    private var weatherJSON = "http://api.openweathermap.org/data/2.5/weather?zip=43230,us&appid=2de143494c0b295cca9337e1e96b00e0"
+    
+    private let testArray = [
+        "Band Practice",
+        "Doctors Appointment",
+        "Development Meeting",
+        "Interview",
+        "Soccer Practice",
+        "STO",
+        "Developer Conference",
+        "Wedding",
+        "New Years Party",
+        "Work"
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.bounces = false
         tableView.backgroundColor = UIColor.clearColor()
         tableView.separatorStyle = .None
+        
+        let jsonData = NSData(contentsOfURL: NSURL(string: weatherJSON)!)
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
+            if let jsonMain = json["main"] as? [String: NSObject] {
+                if let temp = jsonMain["temp"] as? Double {
+                    weatherButton.title = "\(convertKelvinToDegree(temp))\u{00B0}"
+                }
+            }
+        } catch {
+            print("JSON Serialization error")
+        }
+    }
+    
+    private func convertKelvinToDegree(kelvin: Double) -> Int {
+        return Int(kelvin * (9/5) - 459.67)
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,7 +76,7 @@ extension HomeScreenViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell")! as UITableViewCell
-        cell.textLabel?.text = "test"
+        cell.textLabel?.text = testArray[indexPath.row]
         cell.selectedBackgroundView = UIView()
         cell.textLabel?.textColor = UIColor.whiteColor()
         cell.backgroundColor = UIColor.clearColor()
