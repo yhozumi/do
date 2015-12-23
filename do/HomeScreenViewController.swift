@@ -48,6 +48,7 @@ class HomeScreenViewController: UIViewController {
             if let jsonMain = json["main"] as? [String: NSObject] {
                 if let temp = jsonMain["temp"] as? Double {
                     weatherButton.title = "\(convertKelvinToDegree(temp))\u{00B0}"
+                    weatherButton.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFontOfSize(20, weight: UIFontWeightLight)], forState: .Normal)
                 }
             }
         } catch {
