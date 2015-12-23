@@ -21,7 +21,14 @@ class HomeScreenViewController: UIViewController {
     
     private var originalButtonPosition: CGPoint?
     
-    private var weatherJSON = "http://api.openweathermap.org/data/2.5/weather?zip=43230,us&appid=2de143494c0b295cca9337e1e96b00e0"
+    private var weatherJSONData: NSData? {
+        didSet {
+            guard let weatherJSONData = weatherJSONData else { return }
+            parseWeatherJSON(weatherJSONData)
+        }
+    }
+    
+    private var weatherURL = "http://api.openweathermap.org/data/2.5/weather?zip=43230,us&appid=2de143494c0b295cca9337e1e96b00e0"
     
     private let testArray = [
         "Band Practice",
@@ -38,22 +45,15 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTableViewAppearance()
+        fetchWeatherData(weatherURL)
+    }
+    
+    private func configureTableViewAppearance() {
+        weatherButton.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFontOfSize(20, weight: UIFontWeightLight)], forState: .Normal)
         tableView.bounces = false
         tableView.backgroundColor = UIColor.clearColor()
         tableView.separatorStyle = .None
-        
-        let jsonData = NSData(contentsOfURL: NSURL(string: weatherJSON)!)
-        do {
-            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
-            if let jsonMain = json["main"] as? [String: NSObject] {
-                if let temp = jsonMain["temp"] as? Double {
-                    weatherButton.title = "\(convertKelvinToDegree(temp))\u{00B0}"
-                    weatherButton.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFontOfSize(20, weight: UIFontWeightLight)], forState: .Normal)
-                }
-            }
-        } catch {
-            print("JSON Serialization error")
-        }
     }
     
     private func convertKelvinToDegree(kelvin: Double) -> Int {
@@ -67,6 +67,33 @@ class HomeScreenViewController: UIViewController {
     
     @IBAction func addButtonPressed(sender: AnyObject) {
         print("Button pressed")
+    }
+    
+    private func fetchWeatherData(url: String) {
+        let session = NSURLSession.sharedSession()
+        let dataTask = session.dataTaskWithURL(NSURL(string: weatherURL)!) {
+            (data, response, error) in
+            if let error = error {
+                print("network error \(error)")
+            } else {
+                self.weatherJSONData = data
+            }
+        }
+        dataTask.resume()
+    }
+    
+    private func parseWeatherJSON(data: NSData) {
+        do {
+            guard let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [String: AnyObject] else { return }
+            guard let jsonMain = json["main"] as? [String: NSObject] else { return }
+            guard let temp = jsonMain["temp"] as? Double else { return }
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.weatherButton.title = "\(self.convertKelvinToDegree(temp))\u{00B0}"
+            })
+        } catch {
+            print("Parsing error \(error)")
+        }
     }
 }
 
