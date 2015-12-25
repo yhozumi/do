@@ -53,13 +53,15 @@ class HomeScreenViewController: UIViewController {
     }
     
     private func checkCoreLocationAuthorization() {
+        self.locationManager = CLLocationManager()
+        
         switch CLLocationManager.authorizationStatus() {
         case .AuthorizedAlways, .AuthorizedWhenInUse:
-            self.locationManager = CLLocationManager()
-            self.locationManager!.delegate = self
+            locationManager?.delegate = self
+            locationManager?.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager?.startUpdatingLocation()
         case .NotDetermined:
-            self.locationManager = CLLocationManager()
-            locationManager!.requestWhenInUseAuthorization()
+            locationManager?.requestWhenInUseAuthorization()
         case .Denied:
             displayLocationServiceError()
         default: break
@@ -167,6 +169,9 @@ extension HomeScreenViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension HomeScreenViewController: CLLocationManagerDelegate {
-    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations.last)
+        manager.stopUpdatingLocation()
+    }
 }
 
