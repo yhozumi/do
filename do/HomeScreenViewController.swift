@@ -22,6 +22,7 @@ class HomeScreenViewController: UIViewController {
     
     private var originalButtonPosition: CGPoint?
     private var locationManager: CLLocationManager?
+    private var geocoder: CLGeocoder?
     
     private var weatherJSONData: NSData? {
         didSet {
@@ -29,8 +30,6 @@ class HomeScreenViewController: UIViewController {
             parseWeatherJSON(weatherJSONData)
         }
     }
-    
-    private var weatherURL = "http://api.openweathermap.org/data/2.5/weather?zip=43230,us&appid=2de143494c0b295cca9337e1e96b00e0"
     
     private let testArray = [
         "Band Practice",
@@ -48,8 +47,12 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableViewAppearance()
-        fetchWeatherData(weatherURL)
         checkCoreLocationAuthorization()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        originalButtonPosition = addButton.center
     }
     
     private func checkCoreLocationAuthorization() {
@@ -86,18 +89,13 @@ class HomeScreenViewController: UIViewController {
         return Int(kelvin * (9/5) - 459.67)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        originalButtonPosition = addButton.center
-    }
-    
     @IBAction func addButtonPressed(sender: AnyObject) {
         print("Button pressed")
     }
     
-    private func fetchWeatherData(url: String) {
+    private func fetchWeatherData(url: NSURL) {
         let session = NSURLSession.sharedSession()
-        let dataTask = session.dataTaskWithURL(NSURL(string: weatherURL)!) {
+        let dataTask = session.dataTaskWithURL(url) {
             (data, response, error) in
             if let error = error {
                 print("network error \(error)")
@@ -170,8 +168,31 @@ extension HomeScreenViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeScreenViewController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations.last)
-        manager.stopUpdatingLocation()
+        if locations.last?.horizontalAccuracy <= manager.desiredAccuracy {
+            self.geocoder = CLGeocoder()
+            geocoder?.reverseGeocodeLocation(locations.last!, completionHandler: { (placemarks, error) in
+                if placemarks?.count > 0 {
+                    let placemark = placemarks?.last
+                    let url = self.getLocationWeatherWithPlacemark(placemark!)
+                    self.fetchWeatherData(url)
+                }
+            })
+            manager.stopUpdatingLocation()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        let alert = UIAlertController(title: "Location Error", message: "Couldn't find your location. Make sure your cellular or wifi is on and try again.", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
+        weatherButton.title = "--"
+    }
+    
+    private func getLocationWeatherWithPlacemark(placemark: CLPlacemark) -> NSURL {
+        let zipCode = placemark.postalCode!
+        let weatherURL = "http://api.openweathermap.org/data/2.5/weather?zip=\(zipCode),us&appid=2de143494c0b295cca9337e1e96b00e0"
+        return NSURL(string: weatherURL)!
     }
 }
 

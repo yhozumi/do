@@ -312,7 +312,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oXy-24-c52">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Gzk-6i-xJJ">
+                        <barButtonItem key="rightBarButtonItem" title="--" id="Gzk-6i-xJJ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
