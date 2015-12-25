@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class HomeScreenViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     
     private var originalButtonPosition: CGPoint?
+    private var locationManager: CLLocationManager?
     
     private var weatherJSONData: NSData? {
         didSet {
@@ -47,6 +49,28 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
         configureTableViewAppearance()
         fetchWeatherData(weatherURL)
+        checkCoreLocationAuthorization()
+    }
+    
+    private func checkCoreLocationAuthorization() {
+        switch CLLocationManager.authorizationStatus() {
+        case .AuthorizedAlways, .AuthorizedWhenInUse:
+            self.locationManager = CLLocationManager()
+            self.locationManager!.delegate = self
+        case .NotDetermined:
+            self.locationManager = CLLocationManager()
+            locationManager!.requestWhenInUseAuthorization()
+        case .Denied:
+            displayLocationServiceError()
+        default: break
+        }
+    }
+    
+    private func displayLocationServiceError() {
+        let alert = UIAlertController(title: "Location Service Error", message: "Please enable location Service to get the weather data", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     private func configureTableViewAppearance() {
@@ -140,5 +164,9 @@ extension HomeScreenViewController: UITableViewDataSource, UITableViewDelegate {
             slideButtonAndOpaque(.Down, button: addButton, scrollView: scrollView, buttonHeight: addButton.frame.height)
         }
     }
+}
+
+extension HomeScreenViewController: CLLocationManagerDelegate {
+    
 }
 
