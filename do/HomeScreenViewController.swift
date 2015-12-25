@@ -60,15 +60,22 @@ class HomeScreenViewController: UIViewController {
         
         switch CLLocationManager.authorizationStatus() {
         case .AuthorizedAlways, .AuthorizedWhenInUse:
-            locationManager?.delegate = self
-            locationManager?.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            locationManager?.startUpdatingLocation()
+            self.configureAndStartUpdatingLocation(self.locationManager)
         case .NotDetermined:
             locationManager?.requestWhenInUseAuthorization()
+            if CLLocationManager.locationServicesEnabled() {
+                self.configureAndStartUpdatingLocation(locationManager)
+            }
         case .Denied:
             displayLocationServiceError()
         default: break
         }
+    }
+    
+    private func configureAndStartUpdatingLocation(manager: CLLocationManager?) {
+        manager?.delegate = self
+        manager?.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        manager?.startUpdatingLocation()
     }
     
     private func displayLocationServiceError() {
