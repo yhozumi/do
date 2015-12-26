@@ -74,31 +74,6 @@ class LoginViewController: UIViewController {
         super.touchesBegan(touches, withEvent: event)
     }
     
-    private func checkLoginEntry(users: [User]) throws {
-        if nameTextField.text!.isEmpty && passwordTextField.text!.isEmpty {
-            throw UserEntryError.InvalidEntry
-        } else if passwordTextField.text?.characters.count < 8 {
-            throw UserEntryError.PasswordTooShort
-        } else if checkValidUser(users) {
-            throw UserEntryError.UserInvalid
-        } else if checkUserPassword(users) {
-            throw UserEntryError.PasswordTooShort
-        }
-    }
-    
-    private func checkUserPassword(users: [User]) -> Bool {
-        let user = users.filter{ $0.name == nameTextField.text }.first
-        guard let existingUser = user else { return true }
-        guard existingUser.password == passwordTextField.text else { return true }
-        return false
-    }
-    
-    private func checkValidUser(users: [User]) -> Bool {
-        let user = users.filter{ $0.name == nameTextField.text }.first
-        guard let _ = user else { return true }
-        return false
-    }
-    
     private func displayErrorMessageToUser(message: UserEntryError) {
         errorMessageLabel.text = message.description
         UIView.animateWithDuration(0.5, animations: {
@@ -115,22 +90,24 @@ class LoginViewController: UIViewController {
         do {
             let users = try coreDataStack?.managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
             do {
-                try checkLoginEntry(users)
-                print("sign in successful!")
+                try checkLoginStatus(nameTextField.text!, password: passwordTextField.text!, users: users)
             } catch UserEntryError.InvalidEntry {
-                displayErrorMessageToUser(.InvalidEntry)
+                displayErrorMessageToUser(UserEntryError.InvalidEntry)
             } catch UserEntryError.PasswordTooShort {
-                displayErrorMessageToUser(.PasswordTooShort)
+                displayErrorMessageToUser(UserEntryError.PasswordTooShort)
             } catch UserEntryError.UserInvalid {
-                displayErrorMessageToUser(.UserInvalid)
+                displayErrorMessageToUser(UserEntryError.UserInvalid)
             } catch UserEntryError.PasswordNotMatching {
-                displayErrorMessageToUser(.PasswordNotMatching)
-                passwordTextField.text = ""
+                displayErrorMessageToUser(UserEntryError.PasswordNotMatching)
             }
         } catch {
             print("Fetch request error")
         }
     }
+}
+
+extension LoginViewController: UserEntryValidator {
+    
 }
 
 extension LoginViewController: UITextFieldDelegate {

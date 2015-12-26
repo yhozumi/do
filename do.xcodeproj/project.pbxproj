@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA205D241C2EE19600CE51F2 /* UserEntryValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA205D231C2EE19600CE51F2 /* UserEntryValidator.swift */; };
 		BA33159D1C13F97100C4F464 /* UIColor+AdditionalColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33159C1C13F97100C4F464 /* UIColor+AdditionalColors.swift */; };
 		BA3A0EBA1C0A426D00487C5B /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A0EB91C0A426D00487C5B /* SideMenuTableViewCell.swift */; };
 		BA3FEDBD1C1A1B2800968FA5 /* DateTimeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FEDBC1C1A1B2800968FA5 /* DateTimeStackView.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA205D231C2EE19600CE51F2 /* UserEntryValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntryValidator.swift; sourceTree = "<group>"; };
 		BA33159C1C13F97100C4F464 /* UIColor+AdditionalColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+AdditionalColors.swift"; sourceTree = "<group>"; };
 		BA3A0EB91C0A426D00487C5B /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		BA3FEDBC1C1A1B2800968FA5 /* DateTimeStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeStackView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA205D221C2EE16B00CE51F2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BA205D231C2EE19600CE51F2 /* UserEntryValidator.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		BA6917791BE14C48001356A1 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +155,7 @@
 		BA6917841BE14C49001356A1 /* do */ = {
 			isa = PBXGroup;
 			children = (
+				BA205D221C2EE16B00CE51F2 /* Protocols */,
 				BAB17C521BE14F9B0047B91F /* View */,
 				BAB17C511BE14F970047B91F /* Model */,
 				BAB17C501BE14F880047B91F /* View Controller */,
@@ -413,6 +424,7 @@
 				BAF1F90E1BE287A600DD4462 /* SignupContainerTableViewController.swift in Sources */,
 				BABD04D31C21ADA900437BA0 /* String+EmailValidation.swift in Sources */,
 				BABD04D71C24532A00437BA0 /* MinutesHandIdentifier.swift in Sources */,
+				BA205D241C2EE19600CE51F2 /* UserEntryValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
