@@ -10,6 +10,7 @@ import Foundation
 
 protocol UserEntryValidator {
     func checkLoginStatus(userName: String, password: String, users: [User]) throws -> Bool
+    func checkSignUpStatus(userName: String, password: String, email: String, phoneNumber: String, users: [User]) throws -> Bool
 }
 
 extension UserEntryValidator {
@@ -32,11 +33,24 @@ extension UserEntryValidator {
         return existingUser.password != password ? false : true
     }
     
+    //Needs more error checking
+    private func isPhoneNumberValid(phoneNumber: String) -> Bool {
+        return phoneNumber.characters.count == 10 ? true : false
+    }
+    
     func checkLoginStatus(userName: String, password: String, users: [User]) throws -> Bool {
         guard isUserNameValid(userName) else { throw UserEntryError.InvalidEntry }
         guard isPasswordValid(password) else { throw UserEntryError.PasswordTooShort }
         guard isUserExisiting(userName, password: password, users: users) else { throw UserEntryError.UserInvalid }
         guard isUserPasswordMatching(userName, password: password, users: users) else { throw UserEntryError.PasswordNotMatching }
+        return true
+    }
+    
+    func checkSignUpStatus(userName: String, password: String, email: String, phonenNumber: String, users: [User]) throws -> Bool {
+        guard isUserNameValid(userName) else { throw UserEntryError.InvalidEntry }
+        guard isPasswordValid(password) else { throw UserEntryError.PasswordTooShort }
+        guard email.isEmail() else { throw UserEntryError.InvalidEmail }
+        guard isPhoneNumberValid(phonenNumber) else { throw UserEntryError.PhoneNumberInvalid }
         return true
     }
 }

@@ -14,6 +14,7 @@ enum UserEntryError: ErrorType {
     case PasswordNotMatching
     case UserInvalid
     case InvalidEmail
+    case PhoneNumberInvalid
     
     var description: String {
         switch self {
@@ -27,6 +28,8 @@ enum UserEntryError: ErrorType {
             return "User does not exist"
         case .InvalidEmail:
             return "Email format is not correct"
+        case .PhoneNumberInvalid:
+            return "Please enter a 10 digit phone number"
         }
     }
 }
