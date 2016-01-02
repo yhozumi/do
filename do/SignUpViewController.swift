@@ -41,6 +41,7 @@ class SignUpViewController: UIViewController {
 
     @IBAction func continueButtonPressed(sender: AnyObject) {
         if let signUpContainerTableVC = self.childViewControllers.first as? SignupContainerTableViewController {
+            signUpContainerTableVC.delegate = self
             signUpContainerTableVC.parentViewControllerPressedContinue()
         }
     }
@@ -88,8 +89,8 @@ extension SignUpViewController: UIImagePickerControllerDelegate {
     }
 }
 
-extension SignUpViewController: SignupContainerTableViewControllerDataSource {
-    func signUpTableViewSendData(controller: UITableViewController) {
-        
+extension SignUpViewController: SignupContainerTableViewControllerDelegate {
+    func signUpContainerTableViewSendData(userName: String, password: String, email: String, phoneNumber: String) {
+        performSegueWithIdentifier("continueToTutorial", sender: self)
     }
 }

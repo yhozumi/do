@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol SignupContainerTableViewControllerDataSource: class {
-    func signUpTableViewSendData(controller: UITableViewController)
+protocol SignupContainerTableViewControllerDelegate: class {
+    func signUpContainerTableViewSendData(userName: String, password: String, email: String, phoneNumber: String)
 }
 
 class SignupContainerTableViewController: UITableViewController {
@@ -19,7 +19,7 @@ class SignupContainerTableViewController: UITableViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     
     
-    weak var signUpDataSource: SignupContainerTableViewControllerDataSource?
+    weak var delegate: SignupContainerTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,22 +47,30 @@ class SignupContainerTableViewController: UITableViewController {
         passwordTextField.secureTextEntry = true
     }
     
-    private func validateUserEntryData() throws{
-        if nameTextField.text!.isEmpty || emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty || phoneNumberTextField.text!.isEmpty {
-            throw UserEntryError.InvalidEntry
-        } else if !emailTextField.text!.isEmail() {
-            throw UserEntryError.InvalidEmail
-        } 
-    }
-    
     func parentViewControllerPressedContinue() {
-        
+        do {
+            if try checkSignUpStatus() {
+                delegate?.signUpContainerTableViewSendData(nameTextField.text!, password: passwordTextField.text!, email: emailTextField.text!, phoneNumber: phoneNumberTextField.text!)
+            }
+        } catch {
+            print("")
+        }
     }
 }
 
 extension SignupContainerTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        return true
+    }
+}
+
+extension SignupContainerTableViewController: UserEntryValidator {
+    private func checkSignUpStatus() throws -> Bool {
+        guard isUserNameValid(nameTextField.text!) else { throw UserEntryError.InvalidEntry }
+        guard emailTextField.text!.isEmail() else { throw UserEntryError.InvalidEmail }
+        guard isPasswordValid(passwordTextField.text!) else { throw UserEntryError.PasswordTooShort }
+        //include a test to check phone number
         return true
     }
 }

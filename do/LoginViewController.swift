@@ -89,8 +89,10 @@ class LoginViewController: UIViewController {
         let fetchRequest = NSFetchRequest(entityName: "User")
         do {
             let users = try coreDataStack?.managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
+            
             do {
-                try checkLoginStatus(nameTextField.text!, password: passwordTextField.text!, users: users)
+                guard try checkLoginStatus(nameTextField.text!, password: passwordTextField.text!, users: users) else { return }
+                print("success")
             } catch UserEntryError.InvalidEntry {
                 displayErrorMessageToUser(UserEntryError.InvalidEntry)
             } catch UserEntryError.PasswordTooShort {
@@ -107,7 +109,13 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: UserEntryValidator {
-    
+    private func checkLoginStatus(userName: String, password: String, users: [User]) throws -> Bool {
+        guard isUserNameValid(userName) else { throw UserEntryError.InvalidEntry }
+        guard isUserExisiting(userName, password: password, users: users) else { throw UserEntryError.UserInvalid }
+        guard isPasswordValid(password) else { throw UserEntryError.PasswordTooShort }
+        guard isUserPasswordMatching(userName, password: password, users: users) else { throw UserEntryError.PasswordNotMatching }
+        return true
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
