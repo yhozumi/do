@@ -35,4 +35,9 @@ extension UserEntryValidator {
         guard let existingUser = user else { return false }
         return existingUser.password != password ? false : true
     }
+    
+    //implement a check for phonenumber 
+    func isPhoneNumberValid(phoneNumber: String) -> Bool {
+        return true
+    }
 }
