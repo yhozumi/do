@@ -6,7 +6,7 @@
 //  Copyright © 2015 Yusuke Hozumi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum UserEntryError: ErrorType {
     case PasswordTooShort
@@ -31,5 +31,17 @@ enum UserEntryError: ErrorType {
         case .InvalidPhoneNumber:
             return "Please use a 10 digit US Phone Number"
         }
+    }
+    
+    static func displayErrorMessageToUser(error: UserEntryError, errorMessageLabel: UILabel
+        ) {
+        errorMessageLabel.text = error.description
+        UIView.animateWithDuration(0.5, animations: {
+            errorMessageLabel.alpha = 1.0
+            }, completion: {_ in
+                UIView.animateWithDuration(0.5, delay: 5, options: [], animations: {
+                    errorMessageLabel.alpha = 0.0
+                    }, completion: nil)
+        })
     }
 }

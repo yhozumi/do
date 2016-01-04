@@ -10,6 +10,7 @@ import UIKit
 
 protocol SignupContainerTableViewControllerDelegate: class {
     func signUpContainerTableViewSendData(userName: String, password: String, email: String, phoneNumber: String)
+    func signUpContainerTableViewSendError(error: UserEntryError)
 }
 
 class SignupContainerTableViewController: UITableViewController {
@@ -52,8 +53,16 @@ class SignupContainerTableViewController: UITableViewController {
             if try checkSignUpStatus() {
                 delegate?.signUpContainerTableViewSendData(nameTextField.text!, password: passwordTextField.text!, email: emailTextField.text!, phoneNumber: phoneNumberTextField.text!)
             }
+        } catch UserEntryError.InvalidEntry {
+            delegate?.signUpContainerTableViewSendError(.InvalidEntry)
+        } catch UserEntryError.InvalidEmail {
+            delegate?.signUpContainerTableViewSendError(.InvalidEmail)
+        } catch UserEntryError.PasswordTooShort {
+            delegate?.signUpContainerTableViewSendError(.PasswordTooShort)
+        } catch UserEntryError.InvalidPhoneNumber {
+            delegate?.signUpContainerTableViewSendError(.InvalidPhoneNumber)
         } catch {
-            print("")
+            print("Other errors")
         }
     }
 }

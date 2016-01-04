@@ -74,17 +74,6 @@ class LoginViewController: UIViewController {
         super.touchesBegan(touches, withEvent: event)
     }
     
-    private func displayErrorMessageToUser(message: UserEntryError) {
-        errorMessageLabel.text = message.description
-        UIView.animateWithDuration(0.5, animations: {
-            self.errorMessageLabel.alpha = 1.0
-            }, completion: {_ in
-                UIView.animateWithDuration(0.5, delay: 5, options: [], animations: {
-                    self.errorMessageLabel.alpha = 0.0
-                    }, completion: nil)
-        })
-    }
-    
     @IBAction func signInTapped(sender: UIButton) {
         let fetchRequest = NSFetchRequest(entityName: "User")
         do {
@@ -94,13 +83,13 @@ class LoginViewController: UIViewController {
                 guard try checkLoginStatus(nameTextField.text!, password: passwordTextField.text!, users: users) else { return }
                 print("success")
             } catch UserEntryError.InvalidEntry {
-                displayErrorMessageToUser(UserEntryError.InvalidEntry)
+                UserEntryError.displayErrorMessageToUser(UserEntryError.InvalidEntry, errorMessageLabel: self.errorMessageLabel!)
             } catch UserEntryError.PasswordTooShort {
-                displayErrorMessageToUser(UserEntryError.PasswordTooShort)
+                UserEntryError.displayErrorMessageToUser(UserEntryError.PasswordTooShort, errorMessageLabel: self.errorMessageLabel!)
             } catch UserEntryError.UserInvalid {
-                displayErrorMessageToUser(UserEntryError.UserInvalid)
+                UserEntryError.displayErrorMessageToUser(UserEntryError.UserInvalid, errorMessageLabel: self.errorMessageLabel!)
             } catch UserEntryError.PasswordNotMatching {
-                displayErrorMessageToUser(UserEntryError.PasswordNotMatching)
+                UserEntryError.displayErrorMessageToUser(UserEntryError.PasswordNotMatching, errorMessageLabel: self.errorMessageLabel!)
             }
         } catch {
             print("Fetch request error")

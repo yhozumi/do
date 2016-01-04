@@ -12,6 +12,7 @@ import CoreData
 class SignUpViewController: UIViewController {
     
     @IBOutlet weak var profileView: ProfileAvatarImage!
+    @IBOutlet weak var errorMessageLabel: UILabel!
     
     var coreDataStack: CoreDataStack?
     
@@ -92,5 +93,9 @@ extension SignUpViewController: UIImagePickerControllerDelegate {
 extension SignUpViewController: SignupContainerTableViewControllerDelegate {
     func signUpContainerTableViewSendData(userName: String, password: String, email: String, phoneNumber: String) {
         performSegueWithIdentifier("continueToTutorial", sender: self)
+    }
+    
+    func signUpContainerTableViewSendError(error: UserEntryError) {
+        UserEntryError.displayErrorMessageToUser(error, errorMessageLabel: errorMessageLabel)
     }
 }
