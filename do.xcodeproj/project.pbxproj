@@ -33,6 +33,7 @@
 		BAE2522F1C0650BA00F2AF86 /* ProfileStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE2522E1C0650BA00F2AF86 /* ProfileStackView.swift */; };
 		BAEDB1ED1C05E21A0065E8C0 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */; };
 		BAEDB1F11C060AA60065E8C0 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEDB1F01C060AA60065E8C0 /* SideMenuTableViewController.swift */; };
+		BAEFD0E51C3A16A80088F08C /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFD0E41C3A16A80088F08C /* CalendarCell.swift */; };
 		BAF1F8FC1BE2578F00DD4462 /* ProfileAvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF1F8FB1BE2578F00DD4462 /* ProfileAvatarImage.swift */; };
 		BAF1F9091BE2616C00DD4462 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF1F9051BE2616C00DD4462 /* Task+CoreDataProperties.swift */; };
 		BAF1F90A1BE2616C00DD4462 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF1F9061BE2616C00DD4462 /* Task.swift */; };
@@ -91,6 +92,7 @@
 		BAE2522E1C0650BA00F2AF86 /* ProfileStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileStackView.swift; sourceTree = "<group>"; };
 		BAEDB1EC1C05E21A0065E8C0 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		BAEDB1F01C060AA60065E8C0 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
+		BAEFD0E41C3A16A80088F08C /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		BAF1F8FB1BE2578F00DD4462 /* ProfileAvatarImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAvatarImage.swift; sourceTree = "<group>"; };
 		BAF1F9051BE2616C00DD4462 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BAF1F9061BE2616C00DD4462 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				BAE2522E1C0650BA00F2AF86 /* ProfileStackView.swift */,
 				BA3A0EB91C0A426D00487C5B /* SideMenuTableViewCell.swift */,
 				BA3FEDBC1C1A1B2800968FA5 /* DateTimeStackView.swift */,
+				BAEFD0E41C3A16A80088F08C /* CalendarCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				BAC9FD471C0CBBA100C6E11E /* HomeScreenViewController.swift in Sources */,
 				BAF1F9111BE70BB100DD4462 /* User+CoreDataProperties.swift in Sources */,
 				BAC82C401BF2E4F60069B13A /* TutorialScreenViewController.swift in Sources */,
+				BAEFD0E51C3A16A80088F08C /* CalendarCell.swift in Sources */,
 				BAB531911C179EFC00458245 /* CalendarViewController.swift in Sources */,
 				BAF1F9121BE70BB100DD4462 /* User.swift in Sources */,
 				BA6F15371C18827B00967A8A /* MainViewNavigationController.swift in Sources */,
