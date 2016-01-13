@@ -16,16 +16,20 @@ class CalendarCell: UICollectionViewCell {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    private func updateLabel() {
+        if let dateLabel = dateLabel {
+            dateLabel.text = dateText
+        }
+    }
     
-        dateLabel = UILabel(frame: self.frame)
+    override func willMoveToSuperview(newSuperview: UIView?) {
+        super.willMoveToSuperview(newSuperview)
+        dateLabel = UILabel(frame: self.bounds)
         dateLabel.textAlignment = .Center
         dateLabel.textColor = UIColor.whiteColor()
+        print("in awakeFromNib \(self.bounds)")
         addSubview(dateLabel)
+        updateLabel()
     }
     
-    private func updateLabel() {
-        dateLabel.text = dateText
-    }
 }

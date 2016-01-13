@@ -10,6 +10,7 @@ import UIKit
 
 protocol CalendarHeaderViewDelegate: class {
     var cellSize: CGSize { get }
+    var centerX: CGFloat { get }
 }
 
 class CalendarHeaderView: UICollectionReusableView {
@@ -23,7 +24,7 @@ class CalendarHeaderView: UICollectionReusableView {
     private func configureLabels() {
         for weekday in weekdays {
             let label = UILabel()
-            label.text = weekday
+            label.attributedText = NSAttributedString(string: weekday, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(14, weight: UIFontWeightLight)])
             
             guard let labelSize = delegate?.cellSize else { return }
             label.frame = CGRect(origin: labelPosition, size: labelSize)
