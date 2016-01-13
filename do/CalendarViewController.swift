@@ -9,6 +9,8 @@
 import UIKit
 
 class CalendarViewController: UIViewController {
+    private var collectionCellSize: CGSize?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "January"
@@ -32,12 +34,27 @@ extension CalendarViewController: UICollectionViewDataSource {
         cell.dateText = "\(indexPath.row + 1)"
         return cell
     }
-}
-
-extension CalendarViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let width = CGRectGetWidth(collectionView.bounds) / CGFloat(7.0)
-        return CGSize(width: width, height: width)
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "Weekdays", forIndexPath: indexPath) as! CalendarHeaderView
+            header.delegate = self
+            return header
+        default:
+            return UICollectionReusableView()
+        }
     }
 }
 
+extension CalendarViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let width = CGRectGetWidth(collectionView.bounds) / CGFloat(7.0)
+        collectionCellSize = CGSize(width: Int(width), height: Int(width))
+        return collectionCellSize!
+    }
+}
+
+extension CalendarViewController: CalendarHeaderViewDelegate {
+    var cellSize: CGSize { return collectionCellSize! }
+}

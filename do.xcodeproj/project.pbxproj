@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA0C1B561C40BC86004DB017 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0C1B551C40BC86004DB017 /* CalendarHeaderView.swift */; };
 		BA205D241C2EE19600CE51F2 /* UserEntryValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA205D231C2EE19600CE51F2 /* UserEntryValidator.swift */; };
 		BA33159D1C13F97100C4F464 /* UIColor+AdditionalColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33159C1C13F97100C4F464 /* UIColor+AdditionalColors.swift */; };
 		BA3A0EBA1C0A426D00487C5B /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A0EB91C0A426D00487C5B /* SideMenuTableViewCell.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA0C1B551C40BC86004DB017 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		BA205D231C2EE19600CE51F2 /* UserEntryValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntryValidator.swift; sourceTree = "<group>"; };
 		BA33159C1C13F97100C4F464 /* UIColor+AdditionalColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+AdditionalColors.swift"; sourceTree = "<group>"; };
 		BA3A0EB91C0A426D00487C5B /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				BA3A0EB91C0A426D00487C5B /* SideMenuTableViewCell.swift */,
 				BA3FEDBC1C1A1B2800968FA5 /* DateTimeStackView.swift */,
 				BAEFD0E41C3A16A80088F08C /* CalendarCell.swift */,
+				BA0C1B551C40BC86004DB017 /* CalendarHeaderView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				BA6F15371C18827B00967A8A /* MainViewNavigationController.swift in Sources */,
 				BAEDB1ED1C05E21A0065E8C0 /* SideBarViewController.swift in Sources */,
 				BAC82C421BF2E5E00069B13A /* TutorialStepView.swift in Sources */,
+				BA0C1B561C40BC86004DB017 /* CalendarHeaderView.swift in Sources */,
 				BAF1F90A1BE2616C00DD4462 /* Task.swift in Sources */,
 				BA3A0EBA1C0A426D00487C5B /* SideMenuTableViewCell.swift in Sources */,
 				BA69178E1BE14C49001356A1 /* do.xcdatamodeld in Sources */,
