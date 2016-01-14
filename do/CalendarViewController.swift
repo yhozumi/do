@@ -11,9 +11,13 @@ import UIKit
 class CalendarViewController: UIViewController {
     private var collectionCellSize: CGSize?
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "January"
+        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        layout.scrollDirection = .Horizontal
     }
 }
 
@@ -21,11 +25,15 @@ extension CalendarViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print("selected \(indexPath.row + 1)")
     }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 12
+    }
 }
 
 extension CalendarViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 35
+        return 42
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -53,9 +61,9 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout{
         collectionCellSize = CGSize(width: width, height: width)
         return collectionCellSize!
     }
+    
 }
 
 extension CalendarViewController: CalendarHeaderViewDelegate {
     var cellSize: CGSize { return collectionCellSize! }
-    var centerX: CGFloat { return 10  }
 }

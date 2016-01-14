@@ -10,7 +10,6 @@ import UIKit
 
 protocol CalendarHeaderViewDelegate: class {
     var cellSize: CGSize { get }
-    var centerX: CGFloat { get }
 }
 
 class CalendarHeaderView: UICollectionReusableView {
