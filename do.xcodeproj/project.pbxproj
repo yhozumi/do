@@ -21,6 +21,7 @@
 		BA69179E1BE14C49001356A1 /* doTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA69179D1BE14C49001356A1 /* doTests.swift */; };
 		BA6917A91BE14C49001356A1 /* doUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6917A81BE14C49001356A1 /* doUITests.swift */; };
 		BA6F15371C18827B00967A8A /* MainViewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6F15361C18827B00967A8A /* MainViewNavigationController.swift */; };
+		BAA363731C80A72F00A60D9A /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA363721C80A72F00A60D9A /* AddEventViewController.swift */; };
 		BAAD7A091BFD788600512FE9 /* UImage+ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAD7A081BFD788600512FE9 /* UImage+ImageAsset.swift */; };
 		BAB17C551BE14FD90047B91F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB17C541BE14FD90047B91F /* LoginViewController.swift */; };
 		BAB531911C179EFC00458245 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB531901C179EFC00458245 /* CalendarViewController.swift */; };
@@ -81,6 +82,7 @@
 		BA6917A81BE14C49001356A1 /* doUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doUITests.swift; sourceTree = "<group>"; };
 		BA6917AA1BE14C49001356A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA6F15361C18827B00967A8A /* MainViewNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewNavigationController.swift; sourceTree = "<group>"; };
+		BAA363721C80A72F00A60D9A /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		BAAD7A081BFD788600512FE9 /* UImage+ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UImage+ImageAsset.swift"; sourceTree = "<group>"; };
 		BAB17C541BE14FD90047B91F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BAB531901C179EFC00458245 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				BA6F15361C18827B00967A8A /* MainViewNavigationController.swift */,
 				BAC9FD461C0CBBA100C6E11E /* HomeScreenViewController.swift */,
 				BAB531901C179EFC00458245 /* CalendarViewController.swift */,
+				BAA363721C80A72F00A60D9A /* AddEventViewController.swift */,
 			);
 			name = "Main Section";
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF1F8FC1BE2578F00DD4462 /* ProfileAvatarImage.swift in Sources */,
+				BAA363731C80A72F00A60D9A /* AddEventViewController.swift in Sources */,
 				BAD8331B1C1F3C86002A13CF /* CoreDataStack.swift in Sources */,
 				BABD04D11C1FA63000437BA0 /* UserEntryError.swift in Sources */,
 				BAAD7A091BFD788600512FE9 /* UImage+ImageAsset.swift in Sources */,

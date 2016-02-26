@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zn1-Aa-mB2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zn1-Aa-mB2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -294,6 +294,7 @@
                                 <state key="normal" image="addButton"/>
                                 <connections>
                                     <action selector="addButtonPressed:" destination="Zod-Zh-TLH" eventType="touchUpInside" id="dgE-Rl-4BO"/>
+                                    <segue destination="X6q-pv-Sc1" kind="presentation" id="aGh-JJ-Uue"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1153,7 +1154,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ODc-BR-KFo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="205"/>
+            <point key="canvasLocation" x="2532" y="-121"/>
         </scene>
         <!--Tutorial Screen View Controller-->
         <scene sceneID="V6L-Gv-C2t">
@@ -1182,7 +1183,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ysb-T5-zod" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="734"/>
+            <point key="canvasLocation" x="2542" y="398"/>
+        </scene>
+        <!--Add Event View Controller-->
+        <scene sceneID="Gsd-qp-JzW">
+            <objects>
+                <viewController id="282-Em-rQY" customClass="AddEventViewController" customModule="do" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eIB-tD-eKE"/>
+                        <viewControllerLayoutGuide type="bottom" id="aUl-Zt-v7N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k5U-jh-Ju3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="mNv-Ut-cDa">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mNv-Ut-cDa" secondAttribute="trailing" id="5OC-V6-a5Z"/>
+                            <constraint firstItem="aUl-Zt-v7N" firstAttribute="top" secondItem="mNv-Ut-cDa" secondAttribute="bottom" id="ltL-EA-x1l"/>
+                            <constraint firstItem="mNv-Ut-cDa" firstAttribute="leading" secondItem="k5U-jh-Ju3" secondAttribute="leading" id="pEP-K3-VZb"/>
+                            <constraint firstItem="mNv-Ut-cDa" firstAttribute="top" secondItem="k5U-jh-Ju3" secondAttribute="top" id="uuF-HV-Cfg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2PP-si-oQN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qyN-KS-Gob" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3403" y="1171"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ht0-n9-jJl">
@@ -1313,6 +1344,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAS-un-UDN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="994" y="1899"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fsP-43-szv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X6q-pv-Sc1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wiU-xb-faz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="282-Em-rQY" kind="relationship" relationship="rootViewController" id="5v2-ep-wl8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8XL-zT-cOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2591" y="1171"/>
         </scene>
     </scenes>
     <resources>
