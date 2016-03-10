@@ -23,6 +23,7 @@ class HomeScreenViewController: UIViewController {
     private var originalButtonPosition: CGPoint?
     private var locationManager: CLLocationManager?
     private var geocoder: CLGeocoder?
+    private var weatherAppID = "f9e2a67eeb8c75b86bfbfea85e76bd35"
     
     private var weatherJSONData: NSData? {
         didSet {
@@ -198,7 +199,7 @@ extension HomeScreenViewController: CLLocationManagerDelegate {
     
     private func getLocationWeatherWithPlacemark(placemark: CLPlacemark) -> NSURL {
         let zipCode = placemark.postalCode!
-        let weatherURL = "http://api.openweathermap.org/data/2.5/weather?zip=\(zipCode),us&appid=2de143494c0b295cca9337e1e96b00e0"
+        let weatherURL = "http://api.openweathermap.org/data/2.5/weather?zip=\(zipCode),us&appid=\(self.weatherAppID)"
         return NSURL(string: weatherURL)!
     }
 }
